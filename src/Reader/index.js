@@ -7,7 +7,6 @@ class Header extends Component {
             <div>
                 <ul>
                     <li><Link to="/"></Link></li>
-                    <li><Link to="/dashboard"></Link></li>
                     <li><Link to="/main"></Link></li>
                 </ul>
             </div>

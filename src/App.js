@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Header from "./header";
-import Sidebar from "./sidebar";
+import Header from "./Reader";
+import Sidebar from "./Sidebar";
+import Dashboard from "./Dashboard";
 
 
 class App extends Component {
@@ -11,8 +12,7 @@ class App extends Component {
                 <div>
                     <Header/>
                     <Sidebar/>
-                    <Route exact path="/" component={null}/>
-                    <Route exact path="/dashboard" component={null}/>
+                    <Route exact path="/" component={Dashboard}/>
                     <Route exact path="/main" component={null}/>
                 </div>
             </Router>
