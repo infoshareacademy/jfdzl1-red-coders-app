@@ -20,6 +20,8 @@ class Stats extends Component {
             <div>
                 <LineChart style={ChartStyle} width={400} height={400}  data={data}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8"/>
+                    <Line type="monotone" dataKey="pv" stroke="red"/>
+                    <Line type="monotone" dataKey="amt" stroke="#8884d8"/>
                 </LineChart>
             </div>
         )
