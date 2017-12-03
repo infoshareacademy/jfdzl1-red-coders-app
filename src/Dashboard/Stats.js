@@ -5,6 +5,7 @@ class Stats extends Component {
         return(
             <div>
                 Stats
+
             </div>
         )
     }
