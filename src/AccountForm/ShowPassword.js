@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import zxcvbn from 'zxcvbn;'
+ import zxcvbn from 'zxcvbn';
 // import './index.css';
 
-var zxcvbn = require('zxcvbn');
+//var zxcvbn = require('zxcvbn');
 
 class ShowPassword extends Component{
     constructor(props){
@@ -15,22 +15,22 @@ class ShowPassword extends Component{
         this.passwordStrength = this.passwordStrength.bind(this);
     }
 
-    showHide(e){
-        e.preventDefault();
-        e.stopPropagation();
+    showHide(event){
+        event.preventDefault();
+        event.stopPropagation();
         this.setState({
             type: this.state.type === 'input' ? 'password' : 'input'
         })
     }
 
-    passwordStrength(e){
-        if(e.target.value === ''){
+    passwordStrength(event){
+        if(event.target.value === ''){
             this.setState({
-                score: 'null'
+                score: 0
             })
         }
         else{
-            var pw = zxcvbn(e.target.value);
+            var pw = zxcvbn(event.target.value);
             this.setState({
                 score: pw.score
             });
@@ -40,11 +40,18 @@ class ShowPassword extends Component{
 
     render(){
         return(
-            <label className="password">
-                <input type={this.state.type} className="password__input" onChange={this.passwordStrength}/>
+            <div>
+                <div>
+                <input type={this.state.type} 
+                    className="password__input" 
+                    onChange={this.passwordStrength}
+                    placeholder='password'/>
                 <span className="password__show" onClick={this.showHide}>{this.state.type === 'input' ? 'Hide' : 'Show'}</span>
-                <span className="password__strength" data-score={this.state.score} />
-            </label>
+                </div>
+                <div>
+                <span className="password__strength" >{this.state.score}</span>
+                </div>
+            </div>
         )
     }
 }

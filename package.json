@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.1",
+    "firebase": "^4.8.0",
     "react": "^16.0.0",
     "react-chartjs": "^0.8.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "reactfire": "^1.0.0",
+    "zxcvbn": "^4.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
