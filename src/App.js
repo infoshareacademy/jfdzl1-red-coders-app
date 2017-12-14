@@ -4,9 +4,35 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
+import firebase from 'firebase';
+import {auth, isAuthenticated, storageKey} from './client';
+//import reactfire from 'reactfire';
+
+
 
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: null,
+            uid: null
+        };                
+    }
+    
+    componentWillMount() {
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                window.localStorage.setItem(storageKey, user.uid);
+                this.setState({uid: user.uid});
+            } else {
+                window.localStorage.removeItem(storageKey);
+                this.setState({uid: null});
+            }
+        })
+    }
+
+
     render() {
         return (
             <Router>
