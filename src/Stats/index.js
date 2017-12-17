@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {LineChart, Line} from 'recharts';
+import {database} from 'firebase';
 
 const data = [
-    {name: 'Page A', uv: 10},
-    {name: 'Page B', uv: 40},
-    {name: 'Page C', uv: 70},
-    {name: 'Page D', uv: 2780},
-    {name: 'Page E', uv: 70},
-    {name: 'Page F', uv: 2390},
-    {name: 'Page G', uv: 3490},
+    {name: 'Day 1', uv: 11},
+    {name: 'Day 2', uv: 22},
+    {name: 'Day 3', uv: 33},
+    {name: 'Day 4', uv: 44},
+    {name: 'Day 5', uv: 55},
+    {name: 'Day 6', uv: 66},
+    {name: 'Day 7', uv: 77},
 ];
 const ChartStyle= {
     backgroundColor: 'yellow',

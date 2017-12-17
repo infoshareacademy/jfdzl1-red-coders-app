@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Header from "./header";
-import Sidebar from "./sidebar";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 import Stats from "./Stats";
-
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import theme from './theme';
-import Header from "./Header";
-import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
 import {auth, isAuthenticated, storageKey, database} from './firebase';
@@ -40,29 +37,24 @@ class App extends Component {
         const {classes} = this.props;
         return (
             <Router>
-                <div>
-                    <Header/>
-                    <Sidebar/>
-                    <Route exact path="/" component={null}/>
-                    <Route exact path="/dashboard" component={null}/>
-                    <Route exact path="/main" component={null}/>
-                    <Route exact path="/stats" component={Stats}/>
-                    <Stats/>
-                <div className={classes.root}>
-                    <Grid container className={classes.items}>
-                        <Header/>
-                        <Sidebar/>
-                        <Route exact path="/" component={Dashboard}/>
-                        <Route exact path="/main" component={null}/>
-                    </Grid>
-                </div>
+                    <div className={classes.root}>
+                        <Grid container className={classes.items}>
+                            <Header/>
+                            <Sidebar/>
+                            <Route exact path="/" component={Dashboard}/>
+                            <Route exact path="/dashboard" component={null}/>
+                            <Route exact path="/main" component={null}/>
+                            <Route exact path="/stats" component={Stats}/>
+                            <Stats/>
+                        </Grid>
+                    </div>
             </Router>
         );
     }
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(theme)(App);
