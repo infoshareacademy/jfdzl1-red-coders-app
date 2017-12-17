@@ -6,22 +6,15 @@
     "material-ui": "^1.0.0-beta.23",
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
-<<<<<<< HEAD
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
-    "typeface-roboto": "0.0.45"
-=======
+    "typeface-roboto": "0.0.45",
     "chart.js": "^2.7.1",
     "firebase": "^4.8.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14",
     "reactfire": "^1.0.0",
     "zxcvbn": "^4.4.2"
->>>>>>> 9b52e1f6668642da1ac08b281e107e54e6754167
   },
   "scripts": {
     "start": "react-scripts start",
