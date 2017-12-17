@@ -4,9 +4,40 @@ import Header from "./header";
 import Sidebar from "./sidebar";
 import Stats from "./Stats";
 
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
+import theme from './theme';
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Dashboard from "./Dashboard";
+import AccountForm from "./AccountForm";
+import {auth, isAuthenticated, storageKey, database} from './firebase';
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: null,
+            uid: null
+        };
+    }
+
+    componentWillMount() {
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                window.localStorage.setItem(storageKey, user.uid);
+                this.setState({uid: user.uid});
+            } else {
+                window.localStorage.removeItem(storageKey);
+                this.setState({uid: null});
+            }
+        })
+    }
+
     render() {
+        const {classes} = this.props;
         return (
             <Router>
                 <div>
@@ -17,10 +48,22 @@ class App extends Component {
                     <Route exact path="/main" component={null}/>
                     <Route exact path="/stats" component={Stats}/>
                     <Stats/>
+                <div className={classes.root}>
+                    <Grid container className={classes.items}>
+                        <Header/>
+                        <Sidebar/>
+                        <Route exact path="/" component={Dashboard}/>
+                        <Route exact path="/main" component={null}/>
+                    </Grid>
                 </div>
             </Router>
         );
     }
 }
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(theme)(App);
+
