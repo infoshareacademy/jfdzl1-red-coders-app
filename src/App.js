@@ -15,15 +15,11 @@ class App extends Component {
     return (
       <Router>
         <div className={classes.root}>
-          <Grid container>
-            <Grid item xs={12}>
-              <Grid container className={classes.items}>
-                <Header/>
-                <Sidebar/>
-                <Route exact path="/" component={Dashboard}/>
-                <Route exact path="/main" component={null}/>
-              </Grid>
-            </Grid>
+          <Grid container className={classes.items}>
+            <Header/>
+            <Sidebar/>
+            <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/main" component={null}/>
           </Grid>
         </div>
       </Router>
