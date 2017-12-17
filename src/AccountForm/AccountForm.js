@@ -34,14 +34,13 @@ class AccountForm extends Component {
                             />
                         </div>
                         <div>
-                            <input type="password"
-                                   placeholder='password'
-                            />
+                        <ShowPassword/>
                         </div>
                         <div>
                             <input type="password"
                                    placeholder='retype password'
                             />
+                            
                         </div>
                         <div>
                             <input type='submit'
