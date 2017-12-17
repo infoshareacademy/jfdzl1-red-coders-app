@@ -9,8 +9,7 @@ const config = {
   };
 
 const firebaseApp = firebase.initializeApp(config);
-export const db = firebaseApp.database();
-export const ref = db.ref();
+export const database = firebaseApp.database();
 export const auth = firebaseApp.auth();
 export const storageKey = 'KEY_FOR_LOCAL_STORAGE';
 export const isAuthenticated = () => {

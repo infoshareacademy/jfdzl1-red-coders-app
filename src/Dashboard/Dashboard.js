@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
+
 import Stats from './Stats'
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            exampleState: null,
-        };
-
-    }
-    render() {
-        return(
-            <div>
-                Dashboard
-                <br/>
-                <Stats/>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Grid item xs={12}>
+        <Paper>
+          <h1>Dashboard</h1>
+        </Paper>
+        <br/>
+        <Stats/>
+      </Grid>
+    )
+  }
 }
 
 export default Dashboard;
