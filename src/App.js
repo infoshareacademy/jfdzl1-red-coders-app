@@ -41,6 +41,7 @@ class App extends Component {
                         <Header/>
                         <Sidebar/>
                         <Route exact path="/" component={Dashboard}/>
+                        {/*<Route exact path="/place/:id" component={Place}/>*/}
                         <Route exact path="/main" component={null}/>
                     </Grid>
                 </div>
