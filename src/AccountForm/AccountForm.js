@@ -1,48 +1,95 @@
-import React, {Component} from 'react';
-import ShowPassword from "./ShowPassword";
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import IconButton from 'material-ui/IconButton';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import Visibility from 'material-ui-icons/Visibility';
+import VisibilityOff from 'material-ui-icons/VisibilityOff';
 
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        margin: theme.spacing.unit,
+    },
+    withoutLabel: {
+        marginTop: theme.spacing.unit * 3,
+    },
+});
 
 class AccountForm extends Component {
     constructor(props) {
-        super(props)
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
+        super(props);
         this.state = {
+            email:'',
             password: '',
-            repassword: '',
-
+            rePasword: '',
+            showPassword: false,
         }
     }
 
-    passwordChange(event) {
-        this.setState({password: event.target.value})
-    }
+    handleChange = prop => event => {
+        this.setState({ [prop]: event.target.value });
+    };
 
-    handleSubmit(event) {
-
+    handleMouseDownPassword = event => {
         event.preventDefault();
-    }
+    };
+
+    handleClickShowPasssword = () => {
+        this.setState({ showPassword: !this.state.showPassword });
+    };
 
     render() {
+
+        const { classes } = this.props;
+
+
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form>
                     <div>
                         <div>
                             <input type="email"
                                    placeholder='e-mail'
                             />
                         </div>
-                        <div>
-                        <ShowPassword/>
-                        </div>
-                        <div>
-                            <input type="password"
-                                   placeholder='retype password'
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="password">Password</InputLabel>
+                            <Input
+                                id="password"
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                value={this.state.password}
+                                onChange={this.handleChange('password')}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={this.handleClickShowPasssword}
+                                            onMouseDown={this.handleMouseDownPassword}
+                                        >
+                                            {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
                             />
-                            
-                        </div>
+                        </FormControl>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="rePassword">Retype password</InputLabel>
+                            <Input
+                                id="rePassword"
+                                type={this.state.showPassword ? 'text' : 'rePassword'}
+                                value={this.state.rePasword}
+                                onChange={this.handleChange('rePassword')}
+
+                            />
+                        </FormControl>
                         <div>
+
                             <input type='submit'
                                    value='Add'/>
                         </div>
@@ -53,4 +100,10 @@ class AccountForm extends Component {
     }
 }
 
-export default AccountForm;
+
+AccountForm.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(AccountForm);
+
