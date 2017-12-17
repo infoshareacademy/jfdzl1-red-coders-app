@@ -5,7 +5,8 @@ import ShowPassword from "./ShowPassword";
 class AccountForm extends Component {
     constructor(props) {
         super(props)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.passwordChange = this.passwordChange.bind(this);
         this.state = {
             password: '',
             repassword: '',
@@ -13,7 +14,9 @@ class AccountForm extends Component {
         }
     }
 
-
+    passwordChange(event) {
+        this.setState({password: event.target.value})
+    }
 
     handleSubmit(event) {
 
