@@ -8,7 +8,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
-import {auth, isAuthenticated, storageKey, database} from './firebase';
+import {auth, isAuthenticated, storageKey} from './firebase';
 import Push from "./Push";
 
 class App extends Component {

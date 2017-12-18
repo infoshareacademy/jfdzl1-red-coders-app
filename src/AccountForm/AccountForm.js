@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { FormControl, FormGroup, FormControlLabel  } from 'material-ui/Form';
 import Visibility from 'material-ui-icons/Visibility';
 import VisibilityOff from 'material-ui-icons/VisibilityOff';
-
+import Email from 'material-ui-icons/Email';
+import Checkbox from 'material-ui/Checkbox';
+import Button from 'material-ui/Button';
+import Done from 'material-ui-icons/Done';
 
 const styles = theme => ({
     root: {
@@ -20,21 +22,35 @@ const styles = theme => ({
     withoutLabel: {
         marginTop: theme.spacing.unit * 3,
     },
+    block: {
+        maxWidth: 250,
+    },
+    checkbox: {
+        marginBottom: 16,
+        margin: theme.spacing.unit,
+        
+    },
 });
 
 class AccountForm extends Component {
     constructor(props) {
-        super(props);
+        super(props);        
         this.state = {
             email:'',
             password: '',
             rePasword: '',
             showPassword: false,
+            showRePassword: false,
+            checked: false,
         }
     }
-
+    
     handleChange = prop => event => {
         this.setState({ [prop]: event.target.value });
+    };
+
+    handleCheck = name => event => {
+        this.setState({ [name]: event.target.checked });
     };
 
     handleMouseDownPassword = event => {
@@ -45,24 +61,44 @@ class AccountForm extends Component {
         this.setState({ showPassword: !this.state.showPassword });
     };
 
+    handleClickShowRePasssword = () => {
+        this.setState({ showRePassword: !this.state.showRePassword });
+    }; 
+    
+
     render() {
 
         const { classes } = this.props;
 
-
         return (
-            <div>
-                <form>
-                    <div>
-                        <div>
-                            <input type="email"
-                                   placeholder='e-mail'
-                            />
-                        </div>
+            <FormGroup>  
+                    <FormGroup row>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel htmlFor="email">e-mail</InputLabel>
+                        <Input
+                            id="email"
+                            required
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.handleChange('email')}
+                            endAdornment={
+                                <InputAdornment position="end">                                
+                                    <IconButton                                                                     
+                                        disabled                  
+                                    >  
+                                    <Email 
+                                    color="primary"/>
+                                    </IconButton>                                   
+                                </InputAdornment>
+                            }
+                        />
+                    </FormControl>
+                    </FormGroup> 
+                        <FormGroup row>
                         <FormControl className={classes.formControl}>
                             <InputLabel htmlFor="password">Password</InputLabel>
                             <Input
-                                id="password"
+                                id="password"                                                                
                                 type={this.state.showPassword ? 'text' : 'password'}
                                 value={this.state.password}
                                 onChange={this.handleChange('password')}
@@ -71,6 +107,7 @@ class AccountForm extends Component {
                                         <IconButton
                                             onClick={this.handleClickShowPasssword}
                                             onMouseDown={this.handleMouseDownPassword}
+                                            color="primary"
                                         >
                                             {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
                                         </IconButton>
@@ -78,24 +115,49 @@ class AccountForm extends Component {
                                 }
                             />
                         </FormControl>
+                        </FormGroup> 
+                        <FormGroup row>                       
                         <FormControl className={classes.formControl}>
-                            <InputLabel htmlFor="rePassword">Retype password</InputLabel>
-                            <Input
-                                id="rePassword"
-                                type={this.state.showPassword ? 'text' : 'rePassword'}
-                                value={this.state.rePasword}
-                                onChange={this.handleChange('rePassword')}
-
-                            />
+                        <InputLabel htmlFor="rePassword">Retype password</InputLabel>                       
+                        <Input
+                            id="rePassword"                                                        
+                            type={this.state.showRePassword ? 'text' : 'password'}
+                            value={this.state.rePassword}
+                            onChange={this.handleChange('rePassword')} 
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        onClick={this.handleClickShowRePasssword}
+                                        onMouseDown={this.handleMouseDownPassword}
+                                        color="primary"
+                                    >
+                                        {this.state.showRePassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }                           
+                        />                       
                         </FormControl>
-                        <div>
-
-                            <input type='submit'
-                                   value='Add'/>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                        </FormGroup> 
+                        <FormGroup row>
+                        <FormControlLabel
+                          control={
+                            <Checkbox                            
+                              checked={this.state.checked}
+                              onChange={this.handleCheck('checked')}
+                              value="checked"
+                            />
+                          }
+                          label="I agree"
+                        />
+                        
+                        <Button className={classes.button} raised color="primary">                        
+                        <Done className={classes.leftIcon} />
+                        Sign up
+                        </Button>
+                    </FormGroup>
+                    
+                </FormGroup>
+            
         )
     }
 }
