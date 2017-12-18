@@ -21,17 +21,17 @@ class App extends Component {
         };
     }
 
-    componentWillMount() {
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                window.localStorage.setItem(storageKey, user.uid);
-                this.setState({uid: user.uid});
-            } else {
-                window.localStorage.removeItem(storageKey);
-                this.setState({uid: null});
-            }
-        })
-    }
+    // componentWillMount() {
+    //     auth().onAuthStateChanged(user => {
+    //         if (user) {
+    //             window.localStorage.setItem(storageKey, user.uid);
+    //             this.setState({uid: user.uid});
+    //         } else {
+    //             window.localStorage.removeItem(storageKey);
+    //             this.setState({uid: null});
+    //         }
+    //     })
+    // }
 
     render() {
         const {classes} = this.props;

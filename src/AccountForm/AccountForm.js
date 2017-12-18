@@ -10,6 +10,7 @@ import Email from 'material-ui-icons/Email';
 import Checkbox from 'material-ui/Checkbox';
 import Button from 'material-ui/Button';
 import Done from 'material-ui-icons/Done';
+import { auth } from 'firebase';
 
 const styles = theme => ({
     root: {
@@ -38,7 +39,8 @@ class AccountForm extends Component {
         this.state = {
             email:'',
             password: '',
-            rePasword: '',
+            rePassword: '',
+            isReadyToSend: false,
             showPassword: false,
             showRePassword: false,
             checked: false,
@@ -47,10 +49,12 @@ class AccountForm extends Component {
     
     handleChange = prop => event => {
         this.setState({ [prop]: event.target.value });
+        this.setReadyToSend();
     };
 
     handleCheck = name => event => {
         this.setState({ [name]: event.target.checked });
+        this.setReadyToSend();
     };
 
     handleMouseDownPassword = event => {
@@ -64,6 +68,30 @@ class AccountForm extends Component {
     handleClickShowRePasssword = () => {
         this.setState({ showRePassword: !this.state.showRePassword });
     }; 
+
+    setReadyToSend = () => {
+        this.setState({
+            isReadyToSend: (this.state.password !== '') && !this.state.checked && (this.state.password === this.state.rePassword),
+            //  && this.password === this.rePassword && this.checked,
+        })
+    }
+
+    handleSignUp = () => {
+       if (this.state.isReadyToSend) {
+        auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .catch(function(error) {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+        });
+        } else {
+            
+
+        }
+      
+    }
     
 
     render() {
@@ -150,7 +178,11 @@ class AccountForm extends Component {
                           label="I agree"
                         />
                         
-                        <Button className={classes.button} raised color="primary">                        
+                        <Button 
+                        className={classes.button}
+                        raised 
+                        color="primary"
+                        onClick={this.handleSignUp}>                        
                         <Done className={classes.leftIcon} />
                         Sign up
                         </Button>
