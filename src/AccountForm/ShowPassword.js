@@ -35,8 +35,9 @@ class ShowPassword extends Component{
                 score: pw.score
             });
         }
-
     }
+
+    
 
     render(){
         return(
