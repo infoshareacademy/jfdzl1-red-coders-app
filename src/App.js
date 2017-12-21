@@ -8,7 +8,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
-// import {auth,  isAuthenticated, storageKey} from './firebase';
+import {auth,  isAuthenticated, storageKey} from './firebase';
 
 class App extends Component {
 
@@ -21,15 +21,15 @@ class App extends Component {
     }
 
     componentWillMount() {
-        // auth().onAuthStateChanged(user => {
-        //     if (user) {
-        //         window.localStorage.setItem(storageKey, user.uid);
-        //         this.setState({uid: user.uid});
-        //     } else {
-        //         window.localStorage.removeItem(storageKey);
-        //         this.setState({uid: null});
-        //     }
-        // })
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                window.localStorage.setItem(storageKey, user.uid);
+                this.setState({uid: user.uid});
+            } else {
+                window.localStorage.removeItem(storageKey);
+                this.setState({uid: null});
+            }
+        })
     }
 
     render() {

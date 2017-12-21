@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import { FormGroup, FormControlLabel  } from 'material-ui/Form';
-import { auth } from 'firebase';
+import { auth } from '../firebase';
 import PasswordField from './PasswordField';
 import EmailField from './EmailField';
 import Checkbox from 'material-ui/Checkbox';
@@ -58,8 +58,7 @@ class AccountForm extends Component {
     handleSignUp = () => {
         if (this.state.isReadyToSend) {
         
-        auth()
-        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(() => {
             this.setState({
                 infoText: "User succesfuly created",
