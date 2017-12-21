@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import { FormGroup, FormControlLabel  } from 'material-ui/Form';
 import { auth } from 'firebase';
-import Typography from 'material-ui/Typography';
 import PasswordField from './PasswordField';
 import EmailField from './EmailField';
 import Checkbox from 'material-ui/Checkbox';
 import Button from 'material-ui/Button';
 import Done from 'material-ui-icons/Done';
+import StatusInfo from './StatusInfo';
 
 const styles = theme => ({
     root: {
@@ -41,61 +41,135 @@ class AccountForm extends Component {
             password: '',
             rePassword: '',
             isReadyToSend: false,           
-            agree: false,
+            agreement: false,
+            passwordScore: 0,
+            passwordValid: false,
+            passwordSame: true,
+            passWariants: {},
+            infoText: 'If You wish to sign up please fill all fields',
         }
     }
     
-    // handleChange = prop => event => {
-    //     this.setState({ [prop]: event.target.value });
-    //     this.setReadyToSend();
-    // };
-
-    handleCheck = name => event => {
-        this.setState({ [name]: event.target.checked });
-        this.setReadyToSend();
+    handleCheck = name => event => {      
+        this.setState({ [name]: event.target.checked },
+            this.setReadyToSend);        
     };
-
-    setReadyToSend = () => {
-        this.setState({
-            isReadyToSend: (this.state.password !== '') && !this.state.checked && (this.state.password === this.state.rePassword),
-            //  && this.password === this.rePassword && this.checked,
-        })
-    }
-
+    
     handleSignUp = () => {
-       if (this.state.isReadyToSend) {
+        if (this.state.isReadyToSend) {
+        
         auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .catch(function(error) {
-        // Handle Errors here.
+        .then(() => {
+            this.setState({
+                infoText: "User succesfuly created",
+            })
+        })
+        .catch((error) => {
         let errorCode = error.code;
-        let errorMessage = error.message;
-        console.log("Error: ", errorCode, errorMessage)
+        let errorMessage = error.message;        
+        let infoText = '';
+        console.log("Error: ", errorCode, errorMessage);
+        switch(errorCode) {
+            case 'auth/email-already-in-use':            
+            infoText = 'This address has already been used to create a user';
+            break;
+            case 'auth/invalid-email':
+            infoText = 'This e-mail adres is invalid';            
+            break;                    
+            case 'auth/operation-not-allowed': 
+            infoText = 'Creating users is not allowed';            
+            break; 
+            case 'auth/weak-password': 
+            infoText = 'This password is to weak';
+            break;
+            default:
+            infoText = errorCode + ' - ' + errorMessage;            
+                                      
+        };
+        this.setState({
+            infoText: infoText,
         });
-        } else {            
 
-        }      
+        });
+        }
     }
     
     handlePasswordChange = (password) => {
         this.setState({
             password: password,
-        });
-        this.setReadyToSend();
+        },         
+        this.scorePassword(password)
+        );                     
     }
 
-    handleRePasswordChange = (rePassword) => {
+    handleRePasswordChange = (rePassword) => {        
         this.setState({
             rePassword: rePassword,
-        });
-        this.setReadyToSend();
+        }, this.setReadyToSend);
+        
+       
     }
 
-    handleEmailChange = (email) => {
+    handleEmailChange = (email) => {        
         this.setState({
             email: email,
-        });
-        this.setReadyToSend();
+        },this.setReadyToSend);
+               
+    }
+
+    passWariants = (password) => {
+        return ({
+                digits: /\d/.test(password),
+                small: /[a-z]/.test(password),
+                capital: /[A-Z]/.test(password),
+                length: password.length > 5
+            });
+        }
+
+        
+            
+        scorePassword = (password) => {            
+            let score = 0;
+            let passWariants = this.passWariants(password)
+               
+            for(var wariant in passWariants) {
+                if(passWariants[wariant] === true) {
+                    score++;
+                }
+            }
+                   
+            this.setState({
+                passwordScore: score,
+                passWariants: passWariants,
+                passwordValid: (score >= 4),
+            }, this.setReadyToSend); 
+        }
+            
+        setReadyToSend = () => {
+            console.log('zmiana ready: ',
+                        'agreement: ' + this.state.agreement,
+                        this.state.email,
+                        this.state.password, 
+                        this.state.rePassword,
+                        'score: ' + this.state.passwordScore
+                        );
+            this.setState({
+               // isReadyToSend: true,
+                isReadyToSend: this.state.email !== ''
+                && this.state.password !== '' 
+                && this.state.agreement 
+                && (this.state.password === this.state.rePassword)
+                && this.state.passwordValid,
+                passwordSame: (this.state.password === this.state.rePassword),
+                
+            }, this.setInfoTextIfIsReadyChange)
+        }
+    setInfoTextIfIsReadyChange = () => {
+        this.setState({            
+            infoText: this.state.isReadyToSend?'Ready to send':'Please fill all filds, agree with terms \nand use strong password',
+        })
+
     }
 
     render() {
@@ -106,40 +180,41 @@ class AccountForm extends Component {
             <FormGroup>  
                 <FormGroup row>
                     <EmailField 
-                        name="emailNew"
-                        label="e-mail new"
+                        name="email"
+                        label="e-mail"
                         value={this.state.email}
                         onFieldChange={this.handleEmailChange}
                     />
                 </FormGroup> 
                 <FormGroup row>
                     <PasswordField 
-                        name="passwordNew"
-                        label="Password new"
+                        name="password"
+                        label="Password"
                         value={this.state.password}
                         onFieldChange={this.handlePasswordChange}
+                        strength={this.state.passwordScore}
+                        errorState = {!this.state.passwordSame}
                     />                        
                 </FormGroup> 
                 <FormGroup row> 
                     <PasswordField 
-                        name="rePasswordNew"
-                        label="Retype password new"
+                        name="rePassword"
+                        label="Retype password"
                         value={this.state.rePassword}
                         onFieldChange={this.handleRePasswordChange}
+                        errorState = {!this.state.passwordSame}
                     />   
                 </FormGroup> 
                 <FormGroup row>
-                    <Typography component="p">
-                        {this.state.isReadyToSend?'Ready to send':'If You wish to sign up please fill all fields'}
-                    </Typography>                        
+                    <StatusInfo statusText={this.state.infoText} />                                          
                 </FormGroup>  
                 <FormGroup row>
                     <FormControlLabel
                         control={
                             <Checkbox                            
                                 checked={this.state.checked}
-                                onChange={this.handleCheck('agree')}
-                                value="agree"
+                                onChange={this.handleCheck('agreement')}
+                                value="agreement"
                             />
                           }
                         label={"I agree wih terms"}

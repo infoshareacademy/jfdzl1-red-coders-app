@@ -8,8 +8,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
-// import {auth, isAuthenticated, storageKey} from './firebase';
-import Push from "./Push";
+// import {auth,  isAuthenticated, storageKey} from './firebase';
 
 class App extends Component {
 
@@ -21,17 +20,17 @@ class App extends Component {
         };
     }
 
-    // componentWillMount() {
-    //     auth().onAuthStateChanged(user => {
-    //         if (user) {
-    //             window.localStorage.setItem(storageKey, user.uid);
-    //             this.setState({uid: user.uid});
-    //         } else {
-    //             window.localStorage.removeItem(storageKey);
-    //             this.setState({uid: null});
-    //         }
-    //     })
-    // }
+    componentWillMount() {
+        // auth().onAuthStateChanged(user => {
+        //     if (user) {
+        //         window.localStorage.setItem(storageKey, user.uid);
+        //         this.setState({uid: user.uid});
+        //     } else {
+        //         window.localStorage.removeItem(storageKey);
+        //         this.setState({uid: null});
+        //     }
+        // })
+    }
 
     render() {
         const {classes} = this.props;
@@ -42,7 +41,6 @@ class App extends Component {
                         <AccountForm/>
                         <Header/>
                         <Sidebar/>
-                        <Push/>
                         <Route exact path="/" component={Dashboard}/>
                         <Route exact path="/main" component={null}/>
                     </Grid>
