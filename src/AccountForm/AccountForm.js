@@ -68,7 +68,6 @@ class AccountForm extends Component {
         let errorCode = error.code;
         let errorMessage = error.message;        
         let infoText = '';
-        console.log("Error: ", errorCode, errorMessage);
         switch(errorCode) {
             case 'auth/email-already-in-use':            
             infoText = 'This address has already been used to create a user';
@@ -105,16 +104,13 @@ class AccountForm extends Component {
     handleRePasswordChange = (rePassword) => {        
         this.setState({
             rePassword: rePassword,
-        }, this.setReadyToSend);
-        
-       
+        }, this.setReadyToSend); 
     }
 
     handleEmailChange = (email) => {        
         this.setState({
             email: email,
-        },this.setReadyToSend);
-               
+        },this.setReadyToSend);               
     }
 
     passWariants = (password) => {
@@ -124,9 +120,7 @@ class AccountForm extends Component {
                 capital: /[A-Z]/.test(password),
                 length: password.length > 5
             });
-        }
-
-        
+        }     
             
         scorePassword = (password) => {            
             let score = 0;
@@ -145,14 +139,7 @@ class AccountForm extends Component {
             }, this.setReadyToSend); 
         }
             
-        setReadyToSend = () => {
-            console.log('zmiana ready: ',
-                        'agreement: ' + this.state.agreement,
-                        this.state.email,
-                        this.state.password, 
-                        this.state.rePassword,
-                        'score: ' + this.state.passwordScore
-                        );
+        setReadyToSend = () => {            
             this.setState({
                // isReadyToSend: true,
                 isReadyToSend: this.state.email !== ''
@@ -168,7 +155,6 @@ class AccountForm extends Component {
         this.setState({            
             infoText: this.state.isReadyToSend?'Ready to send':'Please fill all filds, agree with terms \nand use strong password',
         })
-
     }
 
     render() {
