@@ -39,9 +39,13 @@ class App extends Component {
             <Router>
                 <div className={classes.root}>
                     <Grid container className={classes.items}>
-                        <AccountForm/>
-                        <AttractionsList/>
+                        <Grid>
+                            <AccountForm/>
+                        </Grid>
                         <Header/>
+                        <Grid>
+                        <AttractionsList/>
+                        </Grid>                 
                         <Sidebar/>
                         <Route exact path="/" component={Dashboard}/>
                         <Route exact path="/main" component={null}/>
