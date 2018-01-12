@@ -9,6 +9,7 @@ import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
 import {auth,  isAuthenticated, storageKey} from './firebase';
+import AttractionsList from './AttractionsList/AttractionsList';
 
 class App extends Component {
 
@@ -38,8 +39,13 @@ class App extends Component {
             <Router>
                 <div className={classes.root}>
                     <Grid container className={classes.items}>
-                        <AccountForm/>
+                        <Grid>
+                            <AccountForm/>
+                        </Grid>
                         <Header/>
+                        <Grid>
+                        <AttractionsList/>
+                        </Grid>                 
                         <Sidebar/>
                         <Route exact path="/" component={Dashboard}/>
                         <Route exact path="/main" component={null}/>
