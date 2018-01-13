@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
+
 import theme from './theme';
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -10,6 +13,7 @@ import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
 import {auth,  isAuthenticated, storageKey} from './firebase';
 import AttractionsList from './AttractionsList/AttractionsList';
+import { store, history } from './store';
 
 class App extends Component {
 
@@ -36,7 +40,8 @@ class App extends Component {
     render() {
         const {classes} = this.props;
         return (
-            <Router>
+          <Provider store={store}>
+            <ConnectedRouter history={history}>
                 <div className={classes.root}>
                     <Grid container className={classes.items}>
                         <Grid>
@@ -45,13 +50,14 @@ class App extends Component {
                         <Header/>
                         <Grid>
                         <AttractionsList/>
-                        </Grid>                 
+                        </Grid>
                         <Sidebar/>
                         <Route exact path="/" component={Dashboard}/>
                         <Route exact path="/main" component={null}/>
                     </Grid>
                 </div>
-            </Router>
+            </ConnectedRouter>
+          </Provider>
         );
     }
 }
