@@ -3,9 +3,11 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import filterReducer from './reducers/filter';
+import uiReducer from './UI/logic';
 
 const reducer = combineReducers({
   filter: filterReducer,
+  ui: uiReducer,
   routing: routerReducer,
 });
 
