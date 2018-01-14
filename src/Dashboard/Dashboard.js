@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
-import Stats from './Stats'
+import Stats from '../Stats'
 import { showNotification } from '../UI/logic';
 
 const mapDispatchToProps = dispatch => {

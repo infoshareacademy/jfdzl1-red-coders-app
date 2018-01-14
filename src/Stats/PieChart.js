@@ -1,4 +1,14 @@
-import React from 'react';
-import chart from 'chart.js'
+import React, {Component} from 'react';
+import {PieChart} from 'recharts'
 
-class PieChart extends
+class Chart extends Component {
+    render() {
+        return (
+            <div>
+                <PieChart/>
+            </div>
+        )
+    }
+}
+
+export default Chart
