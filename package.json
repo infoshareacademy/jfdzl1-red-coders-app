@@ -5,6 +5,7 @@
   "dependencies": {
     "chart.js": "^2.7.1",
     "firebase": "^4.8.0",
+    "history": "^4.7.2",
     "material-ui": "^1.0.0-beta.23",
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
