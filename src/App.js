@@ -10,6 +10,7 @@ import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
 import {auth,  isAuthenticated, storageKey} from './firebase';
 import AttractionsList from './AttractionsList/AttractionsList';
+import AddAttr from './Attraction/AddAttr.js'
 
 class App extends Component {
 
@@ -45,8 +46,13 @@ class App extends Component {
                         <Header/>
                         <Grid>
                         <AttractionsList/>
-                        </Grid>                 
+                        </Grid>
+
                         <Sidebar/>
+                        <Grid>
+                            <h4>Add new attraction...</h4>
+                            <AddAttr />
+                        </Grid>
                         <Route exact path="/" component={Dashboard}/>
                         <Route exact path="/main" component={null}/>
                     </Grid>

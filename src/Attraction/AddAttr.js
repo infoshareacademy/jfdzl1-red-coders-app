@@ -4,11 +4,14 @@
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
 import Select from 'material-ui/Select';
+import PropTypes from 'prop-types'
 import Input, { InputLabel } from 'material-ui/Input';
 import { FormHelperText, FormControl } from 'material-ui/Form';
 import { MenuItem } from 'material-ui/Menu';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
+import { database } from '../firebase.js';
+import firebase from 'firebase';
 
 const styles = theme => ({
     container: {
@@ -57,8 +60,20 @@ class AddAttr extends Component {
         });
     };
 
+    handleSubmit = e => {
+        e.preventDefault();
+        database.ref('/attractions').push({
+            name: this.state.name,
+            category: this.state.category,
+            description: this.state.description,
+            link: this.state.link,
+            timestamp: firebase.database.ServerValue.TIMESTAMP
+        })
+    }
+
     render(){
         const { classes } = this.props;
+
         return(
             <Grid container className={classes.container}>
                 <Grid item xs={12}>
@@ -106,6 +121,9 @@ class AddAttr extends Component {
                         onChange={this.handleLinkChange}
                         margin="normal"
                     />
+                </Grid>
+                <Grid item xs={12}>
+                    <button onClick={this.handleSubmit}>Submit</button>
                 </Grid>
             </Grid>
         )
