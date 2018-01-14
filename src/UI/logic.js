@@ -24,12 +24,12 @@ const INITIAL_STATE = {
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case UI_SHOW_NOTIFICATION:
-      return Object.assign({}, state, {
+      return {
         notifications: {
           open: true,
           message: action.message
         }
-      });
+      };
     case UI_HIDE_NOTIFICATION:
       return INITIAL_STATE;
     default:
