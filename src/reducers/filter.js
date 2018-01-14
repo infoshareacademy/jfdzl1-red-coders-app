@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   filter: ''
 };
 
-function reducer(state = INITIAL_STATE, action = { type: '', payload: null }) {
+const reducer = (state = INITIAL_STATE, action = { type: '', payload: null }) => {
   switch (action.type) {
     case SET_FILTER:
       return Object.assign({}, state, {

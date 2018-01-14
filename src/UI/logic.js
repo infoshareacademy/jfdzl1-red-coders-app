@@ -1,18 +1,14 @@
 const UI_SHOW_NOTIFICATION = 'ui/SHOW_NOTIFICATION';
 const UI_HIDE_NOTIFICATION = 'ui/HIDE_NOTIFICATION';
 
-export function showNotification(message) {
-  return {
-    type: UI_SHOW_NOTIFICATION,
-    message
-  }
-}
+export const showNotification = (message) => ({
+  type: UI_SHOW_NOTIFICATION,
+  message
+});
 
-export function hideNotification() {
-  return {
-    type: UI_HIDE_NOTIFICATION
-  }
-}
+export const hideNotification = () => ({
+  type: UI_HIDE_NOTIFICATION
+});
 
 const INITIAL_STATE = {
   notifications: {
@@ -21,7 +17,7 @@ const INITIAL_STATE = {
   }
 };
 
-export default function reducer(state = INITIAL_STATE, action) {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UI_SHOW_NOTIFICATION:
       return {
