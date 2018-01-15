@@ -19,19 +19,19 @@ export const init = () => (dispatch) => {
             let items = snapshot.val();
             let newAttractions = [];
             for (let item in items) {
+                const { category, description, link, name, timeStamp } = items[item];
                 newAttractions.push({
                     id: item,
-                    category: items[item].category,
-                    description: items[item].description,
-                    link: items[item].link,
-                    name: items[item].name,
-                    timeStamp: items[item].timeStamp,
+                    category,
+                    description,
+                    link,
+                    name,
+                    timeStamp
                 });
             }
             dispatch(set(newAttractions))
         })
 }
-
 
 export default (state = INITIAL_STATE, action) => {
     console.log(state, action)

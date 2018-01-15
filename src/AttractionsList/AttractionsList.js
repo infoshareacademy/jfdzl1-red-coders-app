@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
 import Info from 'material-ui-icons/Info';
-import Clear from 'material-ui-icons/Clear';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import FilterBox from './FilterBox';
 import Paper from 'material-ui/Paper';
-import { connect } from 'react-redux'
-import attractions from "../state/attractions";
+import { connect } from 'react-redux';
 
 const styles = theme => ({
     root: {
@@ -18,9 +15,6 @@ const styles = theme => ({
       background: theme.palette.background.paper,
     },
   });
-
-
-
 class AttractionsList extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +23,6 @@ class AttractionsList extends Component {
             fiterText: '',
         };
     }
-
 
     setFilterText = (fiterText) => {
         this.setState({fiterText: fiterText})
@@ -72,12 +65,8 @@ class AttractionsList extends Component {
       </Grid>
     </Paper>
     );
-
     }
-
 }
-
-
 
 AttractionsList.propTypes = {
     classes: PropTypes.object.isRequired,
