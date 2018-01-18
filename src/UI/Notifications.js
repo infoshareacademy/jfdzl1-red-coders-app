@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
 import IconButton from 'material-ui/IconButton';
@@ -7,19 +7,15 @@ import { withStyles } from 'material-ui/styles';
 
 import { hideNotification } from './logic';
 
-function mapStateToProps(state) {
-  return {
-    open: state.ui.notifications.open,
-    message: state.ui.notifications.message,
-    autoHideDuration: 3000
-  };
-}
+const mapStateToProps = (state) => ({
+  open: state.ui.notifications.open,
+  message: state.ui.notifications.message,
+  autoHideDuration: 3000
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    handleClose: () => dispatch(hideNotification())
-  };
-}
+const mapDispatchToProps = (dispatch) => ({
+  handleClose: () => dispatch(hideNotification())
+});
 
 const styles = theme => ({
   close: {
@@ -28,34 +24,33 @@ const styles = theme => ({
   },
 });
 
-class Notifications extends Component {
+const Notifications = (props) => (
+  <Snackbar
+    open={props.open}
+    message={props.message}
+    autoHideDuration={props.autoHideDuration}
+    onClose={props.handleClose}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'right',
+    }}
+    action={[
+      <IconButton
+        key="close"
+        aria-label="Close"
+        color="inherit"
+        className={props.classes.close}
+        onClick={props.handleClose}
+      >
+        <CloseIcon />
+      </IconButton>,
+    ]}
+  />
+);
 
-  render() {
-    const { classes } = this.props;
-    return (
-      <Snackbar
-        open={this.props.open}
-        message={this.props.message}
-        autoHideDuration={this.props.autoHideDuration}
-        onClose={this.handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        action={[
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            className={classes.close}
-            onClick={this.props.handleClose}
-          >
-            <CloseIcon />
-          </IconButton>,
-        ]}
-      />
-    );
-  }
-}
-
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Notifications));
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps)
+  (Notifications)
+);
