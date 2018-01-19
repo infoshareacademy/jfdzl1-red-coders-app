@@ -7,6 +7,7 @@ import {withStyles} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 
 import theme from './theme';
+import Appbar from './Appbar';
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
@@ -15,6 +16,7 @@ import {auth, isAuthenticated, storageKey} from './firebase';
 import AttractionsList from './AttractionsList/AttractionsList';
 import Notifications from './UI/Notifications';
 import {store, history} from './store';
+import Stats from './Stats';
 
 class App extends Component {
 
@@ -46,18 +48,20 @@ class App extends Component {
           <div>
             <div className={classes.root}>
               <Grid container className={classes.items}>
+                <Appbar/>
                 <Grid>
                   <AccountForm/>
                 </Grid>
                 <Header/>
                 <Grid>
                   <AttractionsList/>
+                  <Stats/>
                 </Grid>
-                <Sidebar/>
                 <Route exact path="/" component={Dashboard}/>
-                <Route exact path="/main" component={null}/>
+                <Route path="/main" component={null}/>
               </Grid>
             </div>
+            <Sidebar/>
             <Notifications/>
           </div>
         </ConnectedRouter>

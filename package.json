@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.1",
-    "firebase": "^4.8.2",
+    "firebase": "^4.9.0",
     "material-ui": "^1.0.0-beta.23",
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-fire": "^1.1.2",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -25,5 +27,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "Demo: http://app.red-coders.jfdzl1.is-academy.pl  git",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infoshareacademy/jfdzl1-red-coders-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infoshareacademy/jfdzl1-red-coders-app/issues"
+  },
+  "homepage": "https://github.com/infoshareacademy/jfdzl1-red-coders-app#readme"
 }
