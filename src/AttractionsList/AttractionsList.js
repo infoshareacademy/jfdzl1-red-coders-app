@@ -8,6 +8,7 @@ import Grid from 'material-ui/Grid';
 import FilterBox from './FilterBox';
 import Paper from 'material-ui/Paper';
 import { connect } from 'react-redux';
+import AddAttr from '../AddAttr/AddAttr';
 
 const styles = theme => ({
     root: {
@@ -33,10 +34,13 @@ class AttractionsList extends Component {
 
         return(
             <Paper>
-            <Grid xs={12}>
+                <Grid>
+                    <AddAttr />
+                </Grid>
+            <Grid >
             <FilterBox changeFilter={this.setFilterText}/>
             </Grid>
-            <Grid xs={12}>
+            <Grid >
         <List align="left">
           {this.props.attractions
             .filter(el => el.name.toUpperCase().search(this.state.fiterText.toUpperCase()) !== -1)               
