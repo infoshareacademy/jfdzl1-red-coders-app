@@ -30,7 +30,9 @@
   },
   "description": "Demo: http://app.red-coders.jfdzl1.is-academy.pl  git",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.28.9"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/infoshareacademy/jfdzl1-red-coders-app.git"

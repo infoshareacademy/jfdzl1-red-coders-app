@@ -55,7 +55,6 @@ class App extends Component {
                 <Header/>
                 <Grid>
                   <AttractionsList/>
-                  <Stats/>
                 </Grid>
                 <Route exact path="/" component={Dashboard}/>
                 <Route path="/main" component={null}/>
