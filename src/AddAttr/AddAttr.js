@@ -109,7 +109,7 @@ class AddAttr extends Component {
                         value={this.state.description}
                         onChange={this.handleDescriptionChange}
                         margin="normal"
-                        multiline="true"
+                        multiline={true}
                     />
                 </Grid>
                 <Grid item xs={12}>
