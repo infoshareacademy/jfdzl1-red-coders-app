@@ -75,7 +75,7 @@ class AddAttr extends Component {
         const { classes } = this.props;
 
         return(
-            <Grid container className={classes.container}>
+            <Grid>
                 <Grid item xs={12}>
                     <FormControl className={classes.formControl}>
                         <InputLabel htmlFor="categoryHelper">Category</InputLabel>

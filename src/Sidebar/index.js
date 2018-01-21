@@ -38,7 +38,31 @@ const Sidebar = (props) => (
             <ListItemIcon>
               <FaDaschbord/>
             </ListItemIcon>
-            <ListItemText primary="Link1"/>
+            <ListItemText primary="Home"/>
+          </ListItem>
+        </Link>
+        <Link to="/add-attraction">
+          <ListItem button>
+            <ListItemIcon>
+              <FaDaschbord/>
+            </ListItemIcon>
+            <ListItemText primary="Add attraction"/>
+          </ListItem>
+        </Link>
+        <Link to="/sign-in">
+          <ListItem button>
+            <ListItemIcon>
+              <FaDaschbord/>
+            </ListItemIcon>
+            <ListItemText primary="Sign in :-)"/>
+          </ListItem>
+        </Link>
+        <Link to="/attractions-list">
+          <ListItem button>
+            <ListItemIcon>
+              <FaDaschbord/>
+            </ListItemIcon>
+            <ListItemText primary="List of attractions"/>
           </ListItem>
         </Link>
       </List>
