@@ -1,7 +1,8 @@
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    fontFamily: 'Roboto, sans-serif'
+    fontFamily: 'Roboto, sans-serif',
+      justifyContent: 'center',
   },
   items: {
     direction: 'row',

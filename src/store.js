@@ -4,13 +4,15 @@ import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import filterReducer from './reducers/filter';
 import uiReducer from './UI/logic';
-import attractionReducer, {init as initAttractionListening} from './state/attractions';
+import attractionsReducer, {init as initAttractionListening} from './state/attractions';
+import attractionReducer from './Attraction/state'
 
 const reducer = combineReducers({
     filter: filterReducer,
     ui: uiReducer,
     routing: routerReducer,
-    attractions: attractionReducer
+    attractions: attractionsReducer,
+    attraction: attractionReducer
 });
 
 const history = createHistory();
