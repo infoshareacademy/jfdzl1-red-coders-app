@@ -14,7 +14,7 @@ const data = [{name: 'Page A', uv: 590, pv: 800, amt: 1400},
 class Chart2 extends Component{
     render(){
         return(
-            <ComposedChart width={600} height={400} data={data}
+            <ComposedChart width={400} height={400} data={data}
                            margin={{top: 20, right: 20, bottom: 20, left: 20}}>
                 <XAxis dataKey="name"/>
                 <YAxis />
