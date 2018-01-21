@@ -51,6 +51,5 @@ const Notifications = (props) => (
 export default withStyles(styles)(
   connect(
     mapStateToProps,
-    mapDispatchToProps)
-  (Notifications)
+    mapDispatchToProps)(Notifications)
 );

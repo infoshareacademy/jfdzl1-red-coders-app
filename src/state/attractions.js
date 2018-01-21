@@ -34,7 +34,6 @@ export const init = () => (dispatch) => {
 }
 
 export default (state = INITIAL_STATE, action) => {
-    console.log(state, action)
     switch (action.type) {
         case SET:
             return {
