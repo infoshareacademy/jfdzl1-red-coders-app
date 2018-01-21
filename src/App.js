@@ -12,7 +12,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import AccountForm from "./AccountForm";
-import {auth, isAuthenticated, storageKey} from './firebase';
+import {auth, storageKey} from './firebase';
 import AttractionsList from './AttractionsList/AttractionsList';
 import Notifications from './UI/Notifications';
 import {store, history} from './store';
