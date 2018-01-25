@@ -17,7 +17,6 @@ const styles = theme => ({
 
     },
 });
-
 class AttractionsList extends Component {
     constructor(props) {
         super(props);
@@ -44,7 +43,8 @@ class AttractionsList extends Component {
                         {this.props.attractions
                             .filter(el => el.name.toUpperCase().search(this.state.fiterText.toUpperCase()) !== -1)
                             .map(attraction => (
-                                <Link to={`/attraction/${attraction.id}`}>
+                                <Link to={`/attraction/${attraction.id}`}
+                                    key={attraction.id}>
                                     <ListItem
                                         key={attraction.id}
                                         dense
