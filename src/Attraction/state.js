@@ -5,7 +5,6 @@ const POPULATE_ATTRACTION = 'POPULATE_ATTRACTION';
 export const getAttraction = (id) => dispatch => {
     database.ref(`/attractions/${id}`)
         .on('value', snapshot => {
-            console.log(snapshot.val());
             dispatch(pupulateAttraction(snapshot.val()));
         })
 };
