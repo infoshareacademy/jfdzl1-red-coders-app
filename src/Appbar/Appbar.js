@@ -30,13 +30,13 @@ const Appbar = (props) => (
   <div style={styles.root}>
     <AppBar position="static">
       <Toolbar>
-        <IconButton style={styles.menuButton} color="contrast" aria-label="Menu">
+        <IconButton style={styles.menuButton} aria-label="Menu">
           <MenuIcon onClick={props.toggleSidebar}/>
         </IconButton>
         <Typography type="title" color="inherit" style={styles.flex}>
           Yawn app
         </Typography>
-        <Button color="contrast">Login</Button>
+        <Button>Login</Button>
       </Toolbar>
     </AppBar>
   </div>

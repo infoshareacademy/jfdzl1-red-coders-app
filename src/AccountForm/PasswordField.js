@@ -21,13 +21,13 @@ const styles = theme => ({
     },
     block: {
         maxWidth: 250,
-    },       
+    },
 });
 
 class PasswordField extends Component {
 constructor(props) {
-    super(props);        
-    this.state = {       
+    super(props);
+    this.state = {
         showPassword: false,
     }
 }
@@ -57,15 +57,15 @@ strengthProgres = () => {
         case 4: colorBar = "primary";
         break;
         default: colorBar = "accent";
-              
+
     }
     return (
-        strenght > 0?<LinearProgress 
-                    mode="determinate" 
-                    value={strenght}                    
-                    color={colorBar}                    
+        strenght > 0?<LinearProgress
+                    mode="determinate"
+                    value={strenght}
+                    color={colorBar}
                     />:null
-    ) 
+    )
 }
 
 
@@ -77,11 +77,11 @@ render() {
     <FormControl className={classes.formControl}>
     <InputLabel htmlFor={this.props.name}>{this.props.label}</InputLabel>
     <Input
-        id={this.props.name}                                                                
+        id={this.props.name}
         type={this.state.showPassword ? 'text' : 'password'}
         value={this.props.value}
-        onChange={this.handleChange}   
-        error={this.props.errorState}     
+        onChange={this.handleChange}
+        error={this.props.errorState}
         endAdornment={
             <InputAdornment position="end">
                 <IconButton
