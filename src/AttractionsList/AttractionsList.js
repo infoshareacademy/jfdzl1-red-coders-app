@@ -53,7 +53,7 @@ class AttractionsList extends Component {
                                         className={classes.listItem}
                                     >
 
-                                        <ListItemText primary={attraction.name}
+                                        <ListItemText primary={attraction.name + ' ' + attraction.category}
                                                       style={{fontSize: 20}}/>
                                         <Typography
                                             gutterBottom
