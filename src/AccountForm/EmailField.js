@@ -19,7 +19,7 @@ const styles = theme => ({
     },
     block: {
         maxWidth: 250,
-    },   
+    },
 });
 
 class EmailField extends Component {
@@ -42,13 +42,13 @@ render() {
             value={this.props.value}
             onChange={this.handleChange}
             endAdornment={
-                <InputAdornment position="end">                                
-                    <IconButton                                                                     
-                        disabled                  
-                    >  
-                    <Email 
+                <InputAdornment position="end">
+                    <IconButton
+                        disabled
+                    >
+                    <Email
                     color="primary"/>
-                    </IconButton>                                   
+                    </IconButton>
                 </InputAdornment>
             }
         />
