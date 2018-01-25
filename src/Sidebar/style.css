@@ -2,7 +2,7 @@ a {
   text-decoration: none;
 }
 
-.sidebar .MuiPaper-root-100 {
+.sidebar > div:nth-child(2) {
   background: #2d2d2d;
 }
 
