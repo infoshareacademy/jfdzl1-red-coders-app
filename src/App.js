@@ -55,12 +55,11 @@ class App extends Component {
 
                                 <Grid
                                 >
-                                    <Route exact path="/" component={Dashboard}/>
-                                    <Route path="/main" component={null}/>
-                                    <Route path="/add-attraction" component={AddAttr}/>
-                                    <Route path="/sign-in" component={AccountForm}/>
-                                    <Route path="/attractions-list" component={AttractionsList}/>
-                                    <Route path="/attraction/:attractionId" component={Attraction}/>
+                                <Route exact path="/" component={Dashboard}/>
+                                <Route path="/add-attraction" component={AddAttr}/>
+                                <Route path="/sign-in" component={AccountForm}/>
+                                <Route path="/attractions-list" component={AttractionsList}/>
+                                <Route path="/attraction/:attractionId" component={Attraction}/>
                                 </Grid>
                             </Grid>
                         </div>
@@ -78,4 +77,3 @@ App.propTypes = {
 };
 
 export default withStyles(theme)(App);
-
