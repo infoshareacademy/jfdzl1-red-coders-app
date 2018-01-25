@@ -36,7 +36,8 @@ class AddAttr extends Component {
         category: '',
         name: '',
         description: '',
-        link: ''
+        link: '',
+        imgLink: ''
     };
 
     handleCategoryChange = e => {
@@ -49,14 +50,22 @@ class AddAttr extends Component {
             name: e.target.value
         });
     };
+
     handleDescriptionChange = e => {
         this.setState({
             description: e.target.value
         });
     };
+
     handleLinkChange = e => {
         this.setState({
             link: e.target.value
+        });
+    };
+
+    handleImgLinkChange = e => {
+        this.setState({
+            imgLink: e.target.value
         });
     };
 
@@ -67,6 +76,7 @@ class AddAttr extends Component {
             category: this.state.category,
             description: this.state.description,
             link: this.state.link,
+            imgLink: this.state.imgLink,
             timestamp: firebase.database.ServerValue.TIMESTAMP
         })
     }
@@ -83,10 +93,11 @@ class AddAttr extends Component {
                                 onChange={this.handleCategoryChange}
                                 input={<Input name="category" id="category-helper"/>}
                         >
-                            <MenuItem value=""><em>None</em></MenuItem>
-                            <MenuItem value="film">Film</MenuItem>
-                            <MenuItem value="book">Book</MenuItem>
-                            <MenuItem value="entertainment">Entertainment</MenuItem>
+                            <MenuItem key="1" value=""><em>None</em></MenuItem>
+                            <MenuItem key="2" value="place">Place</MenuItem>
+                            <MenuItem key="3" value="film">Film</MenuItem>
+                            <MenuItem key="4" value="book">Book</MenuItem>
+                            <MenuItem key="5" value="entertainment">Entertainment</MenuItem>
                         </Select>
                         <FormHelperText>Choose category</FormHelperText>
                     </FormControl>
@@ -119,6 +130,16 @@ class AddAttr extends Component {
                         className={classes.textField}
                         value={this.state.link}
                         onChange={this.handleLinkChange}
+                        margin="normal"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="imgLink"
+                        label="Image link"
+                        className={classes.textField}
+                        value={this.state.imgLink}
+                        onChange={this.handleImgLinkChange}
                         margin="normal"
                     />
                 </Grid>

@@ -8,7 +8,7 @@ import Grid from 'material-ui/Grid';
 import FilterBox from './FilterBox';
 import Paper from 'material-ui/Paper';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
     root: {
@@ -44,26 +44,28 @@ class AttractionsList extends Component {
                         {this.props.attractions
                             .filter(el => el.name.toUpperCase().search(this.state.fiterText.toUpperCase()) !== -1)
                             .map(attraction => (
-                                <ListItem
-                                    key={attraction.id}
-                                    dense
-                                    button
-                                    onDoubleClick={null}
-                                    className={classes.listItem}
-                                >
-                                    <Link to={`/attraction/${attraction.id}`}>{attraction.name}</Link>
-                                    <ListItemText primary={attraction.name}
-                                                  style={{fontSize: 20}}/>
-                                    <Typography
-                                        gutterBottom
-                                        align="left"
-                                        style={{fontSize: 10, color: 'blue'}}
-                                    >{attraction.description}</Typography>
-                                    <ListItemSecondaryAction>
-                                        <Info
-                                            color="primary"/>
-                                    </ListItemSecondaryAction>
-                                </ListItem>
+                                <Link to={`/attraction/${attraction.id}`}>
+                                    <ListItem
+                                        key={attraction.id}
+                                        dense
+                                        button
+                                        onDoubleClick={null}
+                                        className={classes.listItem}
+                                    >
+
+                                        <ListItemText primary={attraction.name + ' ' + attraction.category}
+                                                      style={{fontSize: 20}}/>
+                                        <Typography
+                                            gutterBottom
+                                            align="left"
+                                            style={{fontSize: 10, color: 'blue'}}
+                                        >{attraction.description}</Typography>
+                                        <ListItemSecondaryAction>
+                                            <Info
+                                                color="primary"/>
+                                        </ListItemSecondaryAction>
+                                    </ListItem>
+                                </Link>
                             ))}
                     </List>
                 </Grid>
