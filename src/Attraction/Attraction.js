@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
 import { Link } from 'react-router-dom';
 import  { connect } from 'react-redux';
 import { getAttraction } from './state';
@@ -40,11 +41,11 @@ class Attraction extends Component {
         return(
             <div>
             <Card className={classes.card}>
-        <img src={attraction.imgLink} 
+        <img src={attraction.imgLink}
             style={{width: '700px'}}
             alt={attraction.name}/>
         <CardContent>
-       
+
           <Typography type="headline" component="h2">
           {attraction.name}
           </Typography>
@@ -64,7 +65,7 @@ class Attraction extends Component {
             </Button>
           </a>
         </CardActions>
-      </Card>                        
+      </Card>
       </div>
     )
     }

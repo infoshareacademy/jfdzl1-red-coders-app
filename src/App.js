@@ -52,14 +52,12 @@ class App extends Component {
                                 justify='center'
                             >
                                 <Appbar/>
-
-                                <Grid
-                                >
-                                <Route exact path="/" component={Dashboard}/>
-                                <Route path="/add-attraction" component={AddAttr}/>
-                                <Route path="/sign-in" component={AccountForm}/>
-                                <Route path="/attractions-list" component={AttractionsList}/>
-                                <Route path="/attraction/:attractionId" component={Attraction}/>
+                                <Grid>
+                                  <Route exact path="/" component={Dashboard}/>
+                                  <Route path="/add-attraction" component={AddAttr}/>
+                                  <Route path="/sign-in" component={AccountForm}/>
+                                  <Route path="/attractions-list" component={AttractionsList}/>
+                                  <Route path="/attraction/:attractionId" component={Attraction}/>
                                 </Grid>
                             </Grid>
                         </div>
