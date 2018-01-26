@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import FaDaschbord from 'react-icons/lib/fa/dashboard';
+import FaMusic from 'react-icons/lib/fa/music';
+import FaVideoCamera from 'react-icons/lib/fa/video-camera';
+import FaBook from 'react-icons/lib/fa/book';
 import {Link} from 'react-router-dom';
 
 import Stats from './Stats'
@@ -34,12 +36,37 @@ const styles = theme => ({
     margin: '-5px 0',
     overflow: 'hidden'
   },
+  infoHeadingH3: {
+    textAlign: 'left',
+    margin: '5px 0',
+    textTransform: 'uppercase'
+  },
+  infoHeadingH4: {
+    textAlign: 'left',
+    margin: '5px 0 0 0'
+  },
   infoText: {
     textAlign: 'left'
   },
+  infoTextNoMargin: {
+    margin: 0
+  },
   infoList: {
     textAlign: 'left'
-  }
+  },
+  infoListItem: {
+    padding: 0
+  },
+  infoListText: {
+    fontSize: '15px',
+    fontWeight: '300'
+  },
+  emptySpace20: {
+    height: '20px'
+  },
+  infoIcon: {
+    color: '#e32f33'
+  },
 });
 
 const mapDispatchToProps = dispatch => {
@@ -63,32 +90,34 @@ class Dashboard extends Component {
               </Grid>
               <Grid item xs={6}>
                 <Paper className={classes.paper}>
+                  <h3 className={classes.infoHeadingH3}>What is Yawn Killer?</h3>
                   <p className={classes.infoText}>Arranging activities within free time is no longer a piece of cake. In the remote past, people willingly met outside to go for a walk or reached for a book when felt like staying at home... In this day and age, however, permanently in haste and information overwhelmed - we find it difficult to rest wisely.
-                  Yawn Killer offers you a plenty of ideas for how to relax alone, with friends or family. Among others, Yawn Killer prompts you:
+                  Yawn Killer offers you a plenty of ideas for how to relax alone, with friends or family.
                   </p>
+                  <div className={classes.emptySpace20}></div>
                 </Paper>
               </Grid>
               <Grid item xs={6}>
                 <Paper className={classes.paper}>
-                  <p className={classes.infoText}>Yawn Killer offers you a plenty of ideas for how to relax alone, with friends or family. Among others, Yawn Killer prompts you:</p>
+                  <h4 className={classes.infoHeadingH4}>Among others, Yawn Killer prompts you:</h4>
                   <List className={classes.infoList}>
-                    <ListItem>
+                    <ListItem className={classes.infoListItem}>
                       <ListItemIcon>
-                        <FaDaschbord/>
+                        <FaMusic className={classes.infoIcon}/>
                       </ListItemIcon>
-                      <ListItemText primary="Cultural events taking place in Lublin in the foreseeable future"/>
+                      <p className={classes.infoListText}>Cultural events taking place in Lublin in the foreseeable future</p>
                     </ListItem>
-                    <ListItem>
+                    <ListItem className={classes.infoListItem}>
                       <ListItemIcon>
-                        <FaDaschbord/>
+                        <FaVideoCamera className={classes.infoIcon}/>
                       </ListItemIcon>
-                      <ListItemText primary="Cinema repertories, theatre & opera performances"/>
+                      <p className={classes.infoListText}>Cinema repertories, theatre & opera performances</p>
                     </ListItem>
-                    <ListItem>
+                    <ListItem className={classes.infoListItem}>
                       <ListItemIcon>
-                        <FaDaschbord/>
+                        <FaBook className={classes.infoIcon}/>
                       </ListItemIcon>
-                      <ListItemText primary="Recommended e-books & films online free"/>
+                      <p className={classes.infoListText}>Recommended e-books & films online free</p>
                     </ListItem>
                   </List>
                 </Paper>
