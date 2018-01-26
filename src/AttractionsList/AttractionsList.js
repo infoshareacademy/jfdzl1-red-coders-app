@@ -8,6 +8,7 @@ import Paper from 'material-ui/Paper';
 import { connect } from 'react-redux';
 import SortButton from './SortButton';
 import AttractionListElement from './AttractionListElement';
+import { toggleSort } from '../state/attractions'
 
 const styles = theme => ({
     root: {
@@ -33,16 +34,20 @@ class AttractionsList extends Component {
       <Paper>
         <Grid>
           <FilterBox changeFilter={this.setFilterText}/>
-          <SortButton />
+          <SortButton onSort={this.props.toggleSort}/>
         </Grid>        
         <Grid>
           <List 
             align="left"
           >
             {this.props.attractions
-              .filter(el => el.name.toUpperCase().search(this.state.fiterText.toUpperCase()) !== -1)
+              .filter(el => el.name.toUpperCase().search(this.state.fiterText.toUpperCase()) !== -1)              
+              .sort((a, b) => this.props.sortAsc ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name))
               .map(attraction => (                                
-                  <AttractionListElement attraction={attraction} />                                   
+                  <AttractionListElement 
+                    key={attraction.id}
+                    attraction={attraction}
+                  />                                   
               ))
             }
           </List>
@@ -57,11 +62,17 @@ AttractionsList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  attractions: state.attractions.attractions
+  attractions: state.attractions.attractions,
+  sortAsc: state.attractions.sortAttraction.asc
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleSort: () => dispatch(toggleSort())
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(
   withStyles(
       styles
