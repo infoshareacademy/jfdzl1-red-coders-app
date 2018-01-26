@@ -8,7 +8,6 @@ import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
 import {Link} from 'react-router-dom';
-
 import theme from './theme';
 import Appbar from './Appbar';
 import Sidebar from "./Sidebar";

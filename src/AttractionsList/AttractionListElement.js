@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import { ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import Info from 'material-ui-icons/Info';
 import { Link } from 'react-router-dom';
+import Divider from 'material-ui/Divider/Divider';
 
 const styles = theme => ({
   root: {
@@ -30,11 +30,9 @@ const AttractionListElement = (props) => {
           style={{fontSize: 20}}
         />
         <ListItemSecondaryAction>
-          <Info
-            color="primary"
-          />
         </ListItemSecondaryAction>
       </ListItem>
+      <Divider />
     </Link>
   )
 }
