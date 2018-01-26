@@ -17,9 +17,7 @@ const styles = theme => ({
     left: 'auto',
     position: 'fixed',
     background: '#E13239',
-    color: '#fff',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2,
+    color: '#fff'
   }
 });
 
