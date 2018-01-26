@@ -14,7 +14,6 @@ const styles = theme => ({
     root: {
         width: '100%',
         background: theme.palette.background.paper,
-
     },
 });
 class AttractionsList extends Component {
