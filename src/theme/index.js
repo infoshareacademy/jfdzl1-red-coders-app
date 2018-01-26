@@ -10,7 +10,12 @@ const styles = theme => ({
     alignItems: 'center'
   },
   fab: {
-    position: 'absolute',
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
     background: '#E13239',
     color: '#fff',
     bottom: theme.spacing.unit * 2,
