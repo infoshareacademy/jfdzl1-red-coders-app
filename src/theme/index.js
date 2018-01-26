@@ -8,6 +8,13 @@ const styles = theme => ({
     direction: 'row',
     justify: 'center',
     alignItems: 'center'
+  },
+  fab: {
+    position: 'absolute',
+    background: '#E13239',
+    color: '#fff',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2,
   }
 });
 
