@@ -6,6 +6,7 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import FaDaschbord from 'react-icons/lib/fa/dashboard';
+import {Link} from 'react-router-dom';
 
 import Stats from './Stats'
 import { showNotification } from '../UI/logic';
@@ -14,18 +15,24 @@ import welcomeImg from '../assets/welcome.jpg';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    marginTop: 30,
-    maxWidth: '1300px'
+    marginTop: 20,
+    maxWidth: '1000px'
   },
   paper: {
     padding: 16,
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color:'#424242',
+    fontSize: '15px',
+    fontWeight: '300'
+  },
+  paper_link_box: {
+    padding: 0,
     overflow: 'hidden'
   },
   welcomeImage: {
-    backgroundSize: 'cover',
-    margin: '-20px'
+    width: '100%',
+    margin: '-5px 0',
+    overflow: 'hidden'
   },
   infoText: {
     textAlign: 'left'
@@ -48,8 +55,10 @@ class Dashboard extends Component {
       <div className={classes.root}>
             <Grid container spacing={24}>
               <Grid item xs={12}>
-                <Paper className={classes.paper} >
-                  <img className={classes.welcomeImage} src={welcomeImg} alt="Yawn Killer"/>
+                <Paper className={classes.paper_link_box} >
+                <Link to="/attractions-list">
+                  <img className={classes.welcomeImage} src={welcomeImg} alt="Find attraction"/>
+                </Link>
                 </Paper>
               </Grid>
               <Grid item xs={6}>
