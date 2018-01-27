@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import { ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
 import { Link } from 'react-router-dom';
 import Divider from 'material-ui/Divider/Divider';
+import Avatar from 'material-ui/Avatar';
 
 const styles = theme => ({
   root: {
@@ -24,6 +25,7 @@ const AttractionListElement = (props) => {
         button
         className={classes.listItem}
       >
+        <Avatar alt={props.attraction.name} src={props.attraction.imgLink}/>
         <ListItemText
           primary={props.attraction.name}
           secondary={props.attraction.description}

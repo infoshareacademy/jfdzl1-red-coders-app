@@ -8,7 +8,8 @@ import Paper from 'material-ui/Paper';
 import { connect } from 'react-redux';
 import SortButton from './SortButton';
 import AttractionListElement from './AttractionListElement';
-import { toggleSort } from '../state/attractions'
+import { toggleSort } from '../state/attractions';
+
 
 const styles = theme => ({
     root: {
