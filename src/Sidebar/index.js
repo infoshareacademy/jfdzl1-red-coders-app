@@ -11,7 +11,7 @@ import Divider from 'material-ui/Divider';
 
 import LogoYawnKiller from './LogoYawnKiller';
 import LogoRedCoders from './LogoRedCoders';
-import {toggleSidebar} from './../UI/logic';
+import {toggleSidebar, showSignInModal} from './../UI/logic';
 import './style.css';
 
 const styles = {
@@ -29,7 +29,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleSidebar: () => dispatch(toggleSidebar())
+  toggleSidebar: () => dispatch(toggleSidebar()),
+  openSignInDialog: () => dispatch(showSignInModal())
 });
 
 
@@ -54,14 +55,14 @@ const Sidebar = (props) => (
           </ListItem>
         </Link>
         <Divider style={styles.divider} />
-        <Link to="/sign-in">
-          <ListItem button>
+          <ListItem 
+            button
+            onClick={props.openSignInDialog}>
             <ListItemIcon>
               <FaUser/>
             </ListItemIcon>
             <ListItemText primary="Sign in"/>
           </ListItem>
-        </Link>
         <Divider style={styles.divider} />
         <Link to="/attractions-list">
           <ListItem button>

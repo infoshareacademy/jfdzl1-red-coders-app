@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import { connect } from 'react-redux';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
+import List, {ListItem, ListItemIcon} from 'material-ui/List';
 import FaMusic from 'react-icons/lib/fa/music';
 import FaVideoCamera from 'react-icons/lib/fa/video-camera';
 import FaBook from 'react-icons/lib/fa/book';

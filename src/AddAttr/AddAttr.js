@@ -12,7 +12,7 @@ import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import {database} from '../firebase.js';
 import firebase from 'firebase';
-import {showNotification} from '../UI/logic';
+import {showNotification, hideAddAttraction} from '../UI/logic';
 import {connect} from 'react-redux';
 
 const styles = theme => ({
@@ -35,7 +35,8 @@ const styles = theme => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    showSnackbar: (message) => dispatch(showNotification(message))
+    showSnackbar: message => dispatch(showNotification(message)),
+    hideDialog: () => dispatch(hideAddAttraction())
   }
 }
 
@@ -106,6 +107,7 @@ class AddAttr extends Component {
         .then(() => {
             this.props.showSnackbar('Attraction saved');
             this.clearForm();
+            this.props.hideDialog();
           }
         )
         .catch(

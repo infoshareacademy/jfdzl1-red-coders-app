@@ -5,20 +5,19 @@ import {ConnectedRouter} from 'react-router-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
-import Button from 'material-ui/Button';
-import AddIcon from 'material-ui-icons/Add';
 import {Link} from 'react-router-dom';
 import theme from './theme';
 import Appbar from './Appbar';
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
-import AccountForm from "./AccountForm";
 import {auth, storageKey} from './firebase';
 import AttractionsList from './AttractionsList/AttractionsList';
 import Notifications from './UI/Notifications';
 import {store, history} from './store';
 import AddAttr from "./AddAttr/AddAttr";
 import Attraction from "./Attraction/Attraction";
+import SignInDialog from './AccountForm/SignInDialog';
+import AddAttractionDialog from './AddAttr/AddAttractionDialog';
 
 class App extends Component {
 
@@ -55,12 +54,9 @@ class App extends Component {
                 justify='center'
               >
                 <Appbar/>
-
                 <Grid
                 >
                   <Route exact path="/" component={Dashboard}/>
-                  <Route path="/add-attraction" component={AddAttr}/>
-                  <Route path="/sign-in" component={AccountForm}/>
                   <Route path="/attractions-list" component={AttractionsList}/>
                   <Route path="/attraction/:attractionId" component={Attraction}/>
                 </Grid>
@@ -68,13 +64,11 @@ class App extends Component {
             </div>
             <Sidebar/>
             <Notifications/>
-            <Link to="/add-attraction">
-              <Button fab className={classes.fab}>
-                <AddIcon />
-              </Button>
-            </Link>
-          </div>
-        </ConnectedRouter>
+            
+            <SignInDialog />
+            <AddAttractionDialog />
+          </div>          
+        </ConnectedRouter>    
       </Provider>
     );
   }
