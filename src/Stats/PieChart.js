@@ -37,7 +37,7 @@ class ChartUsers extends Component {
         return (
             <div>
                 <Grid>
-                    <PieChart width={300} height={300} className={classes.root} onMouseEnter={this.onPieEnter}>
+                    <PieChart  className={classes.root} onMouseEnter={this.onPieEnter}>
                         <Pie
                             data={data}
                             cx={300}

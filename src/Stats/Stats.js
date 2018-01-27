@@ -3,34 +3,24 @@ import ChartUsers from './PieChart'
 import ChartAttr from './ComposedChart'
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
-import {withStyles} from 'material-ui/styles';
+import {Paper} from 'material-ui'
 
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-    }
-});
-
-class Stats extends Component {
-    state = {
+const styles = {
         direction: 'row',
         justify: 'space-around',
         alignItems: 'center',
-    };
+        marginLeft: 10
+};
 
-    render() {
-        const {classes} = this.props;
-        const {alignItems, direction, justify} = this.state;
+const Stats = (props) => (
 
-        return (
-            <div>
-                <Grid container className={classes.root}>
+    <Paper style={styles.margin}>
                     <Grid item xs={12}>
                     <Grid container
-                          alignItems={alignItems}
-                          direction={direction}
-                          justify={justify}>
+                          alignItems={styles.alignItems}
+                          direction={styles.direction}
+                          justify={styles.justify}>
                             <Grid item xs={4}>
                                 <h1>Visitors</h1>
                                 <ChartUsers/>
@@ -44,14 +34,12 @@ class Stats extends Component {
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-            </div>
-        )
-    }
-}
+    </Paper>
+);
+
 
 Stats.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Stats)
+export default Stats
