@@ -57,7 +57,11 @@ class AttractionsList extends Component {
           </List>
           
         </Grid>
-        <Button fab className={classes.fab}>
+        <Button 
+          fab 
+          className={classes.fab}
+          onClick={this.props.showAddAttraction}
+          >
                 <AddIcon />
         </Button>
       </Paper>
@@ -76,7 +80,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   toggleSort: () => dispatch(toggleSort()),
-  showAddAttraction: () => dispatchEvent(showAddAttraction())
+  showAddAttraction: () => dispatch(showAddAttraction())
 })
 
 export default connect(

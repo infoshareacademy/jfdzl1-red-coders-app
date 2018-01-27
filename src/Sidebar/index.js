@@ -11,7 +11,7 @@ import Divider from 'material-ui/Divider';
 
 import LogoYawnKiller from './LogoYawnKiller';
 import LogoRedCoders from './LogoRedCoders';
-import {toggleSidebar, showSignInModal} from './../UI/logic';
+import {toggleSidebar, showSignInModal, showAddAttraction} from './../UI/logic';
 import './style.css';
 
 const styles = {
@@ -25,12 +25,13 @@ const styles = {
 };
 
 const mapStateToProps = state => ({
-  open: state.ui.sidebar.open
+  open: state.ui.sidebar.open,
 });
 
 const mapDispatchToProps = dispatch => ({
   toggleSidebar: () => dispatch(toggleSidebar()),
-  openSignInDialog: () => dispatch(showSignInModal())
+  openSignInDialog: () => dispatch(showSignInModal()),
+  showAddAttraction: () => dispatch(showAddAttraction())
 });
 
 
@@ -72,15 +73,15 @@ const Sidebar = (props) => (
             <ListItemText primary="List of attractions"/>
           </ListItem>
         </Link>
-        <Divider style={styles.divider} />
-        <Link to="/add-attraction">
-          <ListItem button>
+        <Divider style={styles.divider} />        
+          <ListItem
+            button
+            onClick={props.showAddAttraction}>
             <ListItemIcon>
               <FaPlusCircle/>
             </ListItemIcon>
             <ListItemText primary="Add attraction"/>
-          </ListItem>
-        </Link>
+          </ListItem>       
       </List>
     </div>
     <Link to="https://github.com/infoshareacademy/jfdzl1-red-coders-www" style={styles.redcodersLink} onClick={props.toggleSidebar} target="_blank">
@@ -89,4 +90,7 @@ const Sidebar = (props) => (
   </Drawer>
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(Sidebar);

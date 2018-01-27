@@ -47,7 +47,7 @@ const INITIAL_STATE = {
     open: false
   },
   addAttraction: {
-    open: true
+    open: false
   }
 };
 
