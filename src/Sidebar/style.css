@@ -1,0 +1,16 @@
+a {
+  text-decoration: none;
+}
+
+.sidebar > div:nth-child(2) {
+  background: #2d2d2d;
+}
+
+.sidebar svg {
+  color: #fff;
+}
+
+.sidebar h3 {
+  color: #fff;
+  text-transform: uppercase;
+}

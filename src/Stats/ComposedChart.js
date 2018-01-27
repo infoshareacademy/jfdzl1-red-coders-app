@@ -11,10 +11,10 @@ const data = [{name: 'Page A', uv: 590, pv: 800, amt: 1400},
     {name: 'Page F', uv: 1400, pv: 680, amt: 1700}];
 
 
-class Chart2 extends Component{
+class ChartAttr extends Component{
     render(){
         return(
-            <ComposedChart width={400} height={400} data={data}
+            <ComposedChart width={200} height={200} data={data}
                            margin={{top: 20, right: 20, bottom: 20, left: 20}}>
                 <XAxis dataKey="name"/>
                 <YAxis />
@@ -27,4 +27,4 @@ class Chart2 extends Component{
         )
     }
 }
-export default Chart2
+export default ChartAttr
