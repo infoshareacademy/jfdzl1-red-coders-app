@@ -8,6 +8,16 @@ const styles = theme => ({
     direction: 'row',
     justify: 'center',
     alignItems: 'center'
+  },
+  fab: {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+    background: '#E13239',
+    color: '#fff'
   }
 });
 

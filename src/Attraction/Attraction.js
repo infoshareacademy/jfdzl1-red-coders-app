@@ -40,7 +40,7 @@ class Attraction extends Component {
     return(
       <div>
         <Card className={classes.card}>
-          <img src={attraction.imgLink} 
+          <img src={attraction.imgLink}
             style={{width: '700px'}}
             alt={attraction.name}/>
           <CardContent>
@@ -63,7 +63,7 @@ class Attraction extends Component {
               </Button>
             </a>
           </CardActions>
-        </Card>                        
+        </Card>
       </div>
     )
   }
