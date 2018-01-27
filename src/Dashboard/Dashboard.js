@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
 class Dashboard extends Component {
   render() {
     return (
-      <Grid item xs={12}>
+      <Grid item xs={24}>
         <Paper>
           <h1>Dashboard</h1>
           <div>
