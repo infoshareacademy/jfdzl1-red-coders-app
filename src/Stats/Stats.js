@@ -17,12 +17,15 @@ import Grid from 'material-ui/Grid';
 import {Paper} from 'material-ui'
 
 
-const styles = {
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
         direction: 'row',
-    justify: 'center',
+        justify: 'space-around',
         alignItems: 'center',
-    marginBottom: 10
-};
+        marginBottom: 10
+    }
+});
 
 const Stats = (props) => (
 
