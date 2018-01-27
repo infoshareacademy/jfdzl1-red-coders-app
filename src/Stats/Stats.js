@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import ChartUsers from './PieChart'
-import ChartAttr from './ComposedChart'
+import ChartUsers from './PieChart';
+import ChartAttr from './ComposedChart';
+import StartupChart from './AreaChart';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import {Paper} from 'material-ui'
@@ -31,6 +32,7 @@ const Stats = (props) => (
                             </Grid>
                             <Grid item xs={4}>
                                 <h1>Our Startups</h1>
+                                <StartupChart/>
                             </Grid>
                         </Grid>
                     </Grid>
