@@ -1,7 +1,8 @@
 # JFDZL1 Red Coders - App
 
 Demo: http://app.red-coders.jfdzl1.is-academy.pl 
-git 
+
+JFDZL1 projects: https://github.com/infoshareacademy/jfdzl1-projects
 
 ## Our other projects
 * Project website: [demo](http://red-coders.jfdzl1.is-academy.pl), [repo](https://github.com/infoshareacademy/jfdzl1-red-coders-www)
