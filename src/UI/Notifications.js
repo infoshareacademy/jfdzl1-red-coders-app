@@ -31,8 +31,8 @@ const Notifications = (props) => (
     autoHideDuration={props.autoHideDuration}
     onClose={props.handleClose}
     anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'right',
+      vertical: 'top',
+      horizontal: 'center',
     }}
     action={[
       <IconButton

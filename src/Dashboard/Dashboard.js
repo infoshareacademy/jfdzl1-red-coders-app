@@ -148,9 +148,9 @@ class Dashboard extends Component {
           </Grid>
           <Grid item xs={3}>
             <Paper className={classes.paper_link_box}>
-              <Link to="https://github.com/infoshareacademy/jfdzl1-red-coders-www">
+              <a href="https://github.com/infoshareacademy/jfdzl1-red-coders-www">
                 <img className={classes.welcomeImage} src={ad} alt="about dev team"/>
-              </Link>
+              </a>
             </Paper>
           </Grid>
           <Grid item xs={12}>

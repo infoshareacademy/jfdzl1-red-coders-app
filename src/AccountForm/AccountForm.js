@@ -62,7 +62,7 @@ class AccountForm extends Component {
         
         auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(() => {            
-                this.props.showNotification( "User succesfuly created")
+                this.props.showNotification( "User succesfuly created");
                 this.props.hideDialog()            
         })
         .catch((error) => {
@@ -241,9 +241,9 @@ AccountForm.propTypes = {
 const mapDispatchToProps = dispatch => {
     return {
       hideDialog:  () => dispatch(hideSignInModal()),
-      showSnackbar: (message) => dispatch(showNotification(message))
+      showNotification: (message) => dispatch(showNotification(message))
     }
-  }
+  };
 
 export default connect(
     null,

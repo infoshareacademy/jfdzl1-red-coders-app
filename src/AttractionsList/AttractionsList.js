@@ -76,12 +76,12 @@ AttractionsList.propTypes = {
 const mapStateToProps = (state) => ({
   attractions: state.attractions.attractions,
   sortAsc: state.attractions.sortAttraction.asc
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   toggleSort: () => dispatch(toggleSort()),
   showAddAttraction: () => dispatch(showAddAttraction())
-})
+});
 
 export default connect(
   mapStateToProps,

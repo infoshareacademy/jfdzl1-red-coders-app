@@ -5,11 +5,12 @@ import IconButton from 'material-ui/IconButton';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
 import Clear from 'material-ui-icons/Clear';
+import Search from 'material-ui-icons/Search';
 
 const styles = theme => ({
     container: {
       display: 'flex',
-      flexWrap: 'wrap',
+      flexWrap: 'wrap'
     },
     textField: {
       marginLeft: theme.spacing.unit,
@@ -17,17 +18,13 @@ const styles = theme => ({
       width: '100%',
     },
     menu: {
-      width: '100%',
+      width: '50%'
     },
   });
 
 class FilterBox extends Component {
     state = {
         inputText: '',
-    };
-
-    handleChange = prop => event => {
-        this.setState({ [prop]: event.target.value });
     };
     
     handleMouseDownAdd = event => {
@@ -36,7 +33,7 @@ class FilterBox extends Component {
 
     handleChangeFilter = event => {
         this.setState({inputText: event.target.value}, this.setParentFilter)
-    }
+    };
     
     handleClickClear = () => {
         this.setState({
@@ -67,6 +64,7 @@ class FilterBox extends Component {
                   >
                      <Clear color="primary"/>
                   </IconButton>
+                  <Search color="primary"/>
                 </InputAdornment>
               }
             />
