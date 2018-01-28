@@ -35,16 +35,16 @@ class Stats extends Component {
               text-align='center'
               justify='center'>
           <Grid style={chartCont}>
-            <Grid item xs={4} style={{textAlign: 'center'}}>
-              <h1>Visitors</h1>
+            <Grid item xs={4}>
+              <h1>Type of Attractions</h1>
               <PieChart width={300} height={200}>
                 <Pie
                   dataKey='value'
                   startAngle={180}
                   endAngle={0}
                   data={dataAttr}
-                  cx="50%" cy="50%"
-                  outerRadius={50}
+                  cx="50%" cy="70%"
+                  outerRadius="80%"
                   fill="#e21b3a"
                   label/>
                 <Tooltip/>
@@ -54,7 +54,7 @@ class Stats extends Component {
           </Grid>
           <Grid style={chartCont}>
             <Grid item xs={4}>
-              <h1 style={{textAlign: 'center'}}>List of Attractions</h1>
+              <h1  style={{textAlign: 'center'}}>Visitors</h1>
               <ComposedChart width={300} height={200} data={dataVis}>
                 <XAxis dataKey="name"/>
                 <YAxis/>
@@ -67,7 +67,7 @@ class Stats extends Component {
           </Grid>
           <Grid style={chartCont}>
             <Grid item xs={4}>
-              <h1 style={{textAlign: 'center'}}>Our Startups</h1>
+              <h1>Our Startups</h1>
               <AreaChart width={300} height={200} data={dataStartup} syncId="anyId">
                 <XAxis dataKey="name"/>
                 <YAxis/>
@@ -93,7 +93,7 @@ const dataStartup = [
   {name: 'None', uv: 0, pv: 0},
   {name: 'YawnKiller', uv: 1, pv: 1}];
 
-const dataAttr = [{name: 'Day 0', value: 23}, {name: 'Day 10', value: 55},
-  {name: 'Day 25', value: 139}, {name: '100', value: 204}];
+const dataAttr = [{name: 'Cinema', value: 23}, {name: 'Theatre', value: 12},
+  {name: 'Book', value: 43}, {name: 'Public events', value: 52}];
 
 export default Stats
