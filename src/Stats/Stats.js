@@ -22,7 +22,6 @@ const chartCont = {
   direction: 'row',
   alignItems: 'center',
   justify: 'center',
-  marginBottom: 10,
   boxSizing: "border-box"
 };
 
@@ -54,11 +53,10 @@ class Stats extends Component {
           </Grid>
           <Grid style={chartCont}>
             <Grid item xs={4}>
-              <h1  style={{textAlign: 'center'}}>Visitors</h1>
+              <h1 style={{textAlign: 'center'}}>Visitors</h1>
               <ComposedChart width={300} height={200} data={dataVis}>
                 <XAxis dataKey="name"/>
                 <YAxis/>
-                <Tooltip/>
                 <CartesianGrid stroke='#f0111'/>
                 <Bar dataKey='uv' barSize={20} fill='#413ea0'/>
                 <Line type='monotone' dataKey='uv' stroke='#e2c63a'/>
@@ -82,12 +80,12 @@ class Stats extends Component {
   }
 }
 
-const dataVis = [{name: 'Page A', uv: 4, pv: 800, amt: 1400},
-  {name: 'Day 1', uv: 13, amt: 1506},
+const dataVis = [
+  {name: 'Day 1', uv: 13},
   {uv: 87, amt: 989},
-  {name: 'Day 30', uv: 110, amt: 1228},
+  {name: 'Day 30', uv: 110},
   {uv: 123, amt: 1100},
-  {name: 'Day 100', uv: 200, amt: 1700}];
+  {name: 'Day 100', uv: 200}];
 
 const dataStartup = [
   {name: 'None', uv: 0, pv: 0},
