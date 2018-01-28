@@ -14,6 +14,8 @@ import {database} from '../firebase.js';
 import firebase from 'firebase';
 import {showNotification, hideAddAttraction} from '../UI/logic';
 import {connect} from 'react-redux';
+import Save from 'material-ui-icons/Save';
+import Button from 'material-ui/Button';
 
 const styles = theme => ({
   container: {
@@ -183,8 +185,16 @@ class AddAttr extends Component {
             margin="normal"
           />
         </Grid>
-        <Grid item xs={12}>
-          <button onClick={this.handleSubmit}>Submit</button>
+        <Grid>
+          <Button
+            raised
+            className={classes.fab}
+            color="primary"
+            onClick={this.handleSubmit}
+          >
+            Save
+          </Button>
+
         </Grid>
       </Grid>
     )
