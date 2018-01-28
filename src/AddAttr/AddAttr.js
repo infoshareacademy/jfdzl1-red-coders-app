@@ -21,12 +21,12 @@ const styles = theme => ({
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120
+    width: '100%'
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: '100%',
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2

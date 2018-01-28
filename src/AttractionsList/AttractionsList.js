@@ -39,6 +39,14 @@ class AttractionsList extends Component {
         <Grid>
           <FilterBox changeFilter={this.setFilterText}/>
           <SortButton onSort={this.props.toggleSort}/>
+          <Button
+            fab
+            className={classes.fab}
+            color="primary"
+            onClick={this.props.showAddAttraction}
+          >
+            <AddIcon />
+          </Button>
         </Grid>        
         <Grid>
           <List 
@@ -55,15 +63,7 @@ class AttractionsList extends Component {
               ))
             }
           </List>
-          
         </Grid>
-        <Button 
-          fab 
-          className={classes.fab}
-          onClick={this.props.showAddAttraction}
-          >
-                <AddIcon />
-        </Button>
       </Paper>
     );
   }
