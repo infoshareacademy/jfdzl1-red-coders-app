@@ -39,7 +39,7 @@ class Stats extends Component {
               <h1>Visitors</h1>
               <PieChart width={300} height={200}>
                 <Pie
-                  datakey={value}
+                  dataKey='value'
                   startAngle={180}
                   endAngle={0}
                   data={dataAttr}
