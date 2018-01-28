@@ -10,7 +10,7 @@ function getModalStyle() {
 
   return {
     position: 'absolute',
-    width: 8 * 50,
+    width: 6 * 45,
     top: `${top}%`,
     left: `${left}%`,
     transform: `translate(-${top}%, -${left}%)`,
