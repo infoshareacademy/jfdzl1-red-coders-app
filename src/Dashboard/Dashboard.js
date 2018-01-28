@@ -142,7 +142,7 @@ class Dashboard extends Component {
               </Paper>
             </Grid>
             <Grid item xs={12}>
-              <Stats/>
+
             </Grid>
           </Grid>
         </div>
