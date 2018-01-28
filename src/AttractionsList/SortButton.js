@@ -14,9 +14,8 @@ const SortButton = (props) => {
 
 const { classes } = props;  
   return(
-    <Button 
-      fab 
-      mini 
+    <Button
+      fab
       color="accent" 
       aria-label="sort" 
       className={classes.button}

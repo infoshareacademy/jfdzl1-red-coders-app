@@ -9,6 +9,8 @@ import Checkbox from 'material-ui/Checkbox';
 import Button from 'material-ui/Button';
 import Done from 'material-ui-icons/Done';
 import StatusInfo from './StatusInfo';
+import { connect } from 'react-redux';
+import { hideSignInModal, showNotification } from '../UI/logic';
 
 const styles = theme => ({
     root: {
@@ -59,10 +61,9 @@ class AccountForm extends Component {
         if (this.state.isReadyToSend) {
         
         auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => {
-            this.setState({
-                infoText: "User succesfuly created",
-            })
+        .then(() => {            
+                this.props.showNotification( "User succesfuly created")
+                this.props.hideDialog()            
         })
         .catch((error) => {
         let errorCode = error.code;
@@ -237,4 +238,15 @@ AccountForm.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AccountForm);
+const mapDispatchToProps = dispatch => {
+    return {
+      hideDialog:  () => dispatch(hideSignInModal()),
+      showSnackbar: (message) => dispatch(showNotification(message))
+    }
+  }
+
+export default connect(
+    null,
+    mapDispatchToProps
+
+)(withStyles(styles)(AccountForm));

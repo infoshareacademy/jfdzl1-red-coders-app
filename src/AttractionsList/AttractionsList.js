@@ -9,6 +9,9 @@ import { connect } from 'react-redux';
 import SortButton from './SortButton';
 import AttractionListElement from './AttractionListElement';
 import { toggleSort } from '../state/attractions';
+import { showAddAttraction } from '../UI/logic';
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
 
 
 const styles = theme => ({
@@ -30,11 +33,20 @@ class AttractionsList extends Component {
   };
 
   render() {
+    const {classes} = this.props;
     return (
       <Paper>
         <Grid>
           <FilterBox changeFilter={this.setFilterText}/>
           <SortButton onSort={this.props.toggleSort}/>
+          <Button
+            fab
+            className={classes.fab}
+            color="primary"
+            onClick={this.props.showAddAttraction}
+          >
+            <AddIcon />
+          </Button>
         </Grid>        
         <Grid>
           <List 
@@ -67,7 +79,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleSort: () => dispatch(toggleSort())
+  toggleSort: () => dispatch(toggleSort()),
+  showAddAttraction: () => dispatch(showAddAttraction())
 })
 
 export default connect(
