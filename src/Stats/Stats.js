@@ -14,7 +14,8 @@ import {
   YAxis
 } from 'recharts';
 import Grid from 'material-ui/Grid';
-import {Paper} from 'material-ui'
+import {Paper} from 'material-ui';
+import Typography from 'material-ui/Typography';
 
 
 const chartCont = {
@@ -34,8 +35,11 @@ class Stats extends Component {
               text-align='center'
               justify='center'>
           <Grid style={chartCont}>
-            <Grid item xs={4}>
-              <h1>Type of Attractions</h1>
+            <Grid>
+              <Typography
+                align="center"
+                type="display1"
+              >Type of Attractions</Typography>
               <PieChart width={300} height={200}>
                 <Pie
                   dataKey='value'
@@ -52,8 +56,12 @@ class Stats extends Component {
             </Grid>
           </Grid>
           <Grid style={chartCont}>
-            <Grid item xs={4}>
-              <h1 style={{textAlign: 'center'}}>Visitors</h1>
+            <Grid>
+              <Typography
+                align="center"
+                type="display1">
+                Visitors
+              </Typography>
               <ComposedChart width={300} height={200} data={dataVis}>
                 <XAxis dataKey="name"/>
                 <YAxis/>
@@ -64,8 +72,12 @@ class Stats extends Component {
             </Grid>
           </Grid>
           <Grid style={chartCont}>
-            <Grid item xs={4}>
-              <h1>Our Startups</h1>
+            <Grid>
+              <Typography
+                align="center"
+                type="display1">
+                Our Startups
+              </Typography>
               <AreaChart width={300} height={200} data={dataStartup} syncId="anyId">
                 <XAxis dataKey="name"/>
                 <YAxis/>
@@ -91,7 +103,7 @@ const dataStartup = [
   {name: 'None', uv: 0, pv: 0},
   {name: 'YawnKiller', uv: 1, pv: 1}];
 
-const dataAttr = [{name: 'Cinema', value: 23}, {name: 'Theatre', value: 12},
-  {name: 'Book', value: 43}, {name: 'Public events', value: 52}];
+const dataAttr = [{name: 'Cinema', value: 23, fill:'green'}, {name: 'Theatre', value: 12, fill:'black'},
+  {name: 'Books', value: 43, fill:'blue'}, {name: 'Public events', value: 52}];
 
 export default Stats
