@@ -24,7 +24,7 @@ const { classes } = props;
       <Sort />
     </Button>
   )
-} 
+};
 
 SortButton.propTypes = {
   classes: PropTypes.object.isRequired,

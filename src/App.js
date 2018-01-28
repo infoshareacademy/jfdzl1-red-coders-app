@@ -52,8 +52,7 @@ class App extends Component {
                 justify='center'
               >
                 <Appbar/>
-                <Grid
-                >
+                <Grid>
                   <Route exact path="/" component={Dashboard}/>
                   <Route path="/attractions-list" component={AttractionsList}/>
                   <Route path="/attraction/:attractionId" component={Attraction}/>
@@ -62,7 +61,6 @@ class App extends Component {
             </div>
             <Sidebar/>
             <Notifications/>
-            
             <SignInDialog />
             <AddAttractionDialog />
           </div>          

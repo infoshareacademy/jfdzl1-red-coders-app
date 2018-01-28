@@ -30,7 +30,7 @@ class Stats extends Component {
     return (
       <Paper>
         <Grid container
-              spacing={12}
+              spacing={8}
               text-align='center'
               justify='center'>
           <Grid style={chartCont}>
