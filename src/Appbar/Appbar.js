@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 
 import LogoYawnKillerWhite from './LogoYawnKillerWhite';
-import {toggleSidebar} from '../UI/logic';
+import {showSignInModal, toggleSidebar} from '../UI/logic';
 
 const styles = {
   root: {
@@ -31,7 +31,8 @@ const styles = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  toggleSidebar: () => dispatch(toggleSidebar())
+  toggleSidebar: () => dispatch(toggleSidebar()),
+  showSignInDialog: () => dispatch(showSignInModal())
 });
 
 const Appbar = (props) => (
@@ -46,9 +47,9 @@ const Appbar = (props) => (
           <LogoYawnKillerWhite/>
         </Link>
         </Typography>
-        <Link to="/sign-in">
-          <Button style={styles.loginButton} >Login</Button>
-        </Link>
+          <Button
+            onClick={props.showSignInDialog}
+            style={styles.loginButton} >Sign in</Button>
       </Toolbar>
     </AppBar>
   </div>

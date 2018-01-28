@@ -16,7 +16,7 @@ const { classes } = props;
   return(
     <Button
       fab
-      color="accent" 
+      color="secondary"
       aria-label="sort" 
       className={classes.button}
       onClick={props.onSort}
