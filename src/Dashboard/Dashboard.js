@@ -134,7 +134,6 @@ class Dashboard extends Component {
             <Grid item xs={3}>
               <Paper className={classes.paper}>
                 Dodaj atrakcję
-                <button onClick={this.props.showSnackbar}>CLICK ME!</button>
               </Paper>
             </Grid>
             <Grid item xs={3}>
@@ -143,7 +142,7 @@ class Dashboard extends Component {
               </Paper>
             </Grid>
             <Grid item xs={12}>
-              <Stats/>
+
             </Grid>
           </Grid>
         </div>
