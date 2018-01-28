@@ -103,7 +103,7 @@ const dataStartup = [
   {name: 'None', uv: 0, pv: 0},
   {name: 'YawnKiller', uv: 1, pv: 1}];
 
-const dataAttr = [{name: 'Cinema', value: 23}, {name: 'Theatre', value: 12},
-  {name: 'Book', value: 43}, {name: 'Public events', value: 52}];
+const dataAttr = [{name: 'Cinema', value: 23, fill:'green'}, {name: 'Theatre', value: 12, fill:'black'},
+  {name: 'Books', value: 43, fill:'blue'}, {name: 'Public events', value: 52}];
 
 export default Stats
