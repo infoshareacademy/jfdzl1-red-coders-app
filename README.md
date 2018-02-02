@@ -1,5 +1,11 @@
 # JFDZL1 Red Coders - App
 
+Run:
+```sh
+npm install
+npm start
+```
+
 Demo: http://app.red-coders.jfdzl1.is-academy.pl 
 
 JFDZL1 projects: https://github.com/infoshareacademy/jfdzl1-projects
